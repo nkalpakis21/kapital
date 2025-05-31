@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Secondary Liquidity Market Explained</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9fafb;
+      color: #111827;
+      margin: 0;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #1f2937;
+    }
+    .section {
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      margin-bottom: 1.5rem;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    code {
+      background-color: #f3f4f6;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.25rem;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔄 What Is a Secondary Liquidity Market?</h1>
+  <div class="section">
+    <p>
+      It’s a marketplace where LPs can buy/sell their <strong>$OCV</strong> tokens after the lockup period, 
+      providing them with early liquidity rather than waiting years for fund exits (like in traditional VC).
+    </p>
+  </div>
+
+  <h2>🧠 Why It Matters</h2>
+  <div class="section">
+    <p>
+      In traditional VC, LPs are locked in for 7–10 years. With tokenized LP shares, you enable early exit options 
+      for LPs by letting them trade on-chain.
+    </p>
+  </div>
+
+  <h2>💧 How It Would Work – Step-by-Step</h2>
+
+  <div class="section">
+    <h3>1. After Vesting Begins</h3>
+    <p>
+      Once the 1-year lockup ends and vesting starts, tokens become transferrable. At this point, 
+      LPs can start selling their unlocked <strong>$OCV</strong> tokens.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>2. DEX Pool Launch (Year 2 Target)</h3>
+    <p>
+      Launch a liquidity pool on a decentralized exchange (DEX), such as Uniswap, Balancer, or Jupiter (for Solana):
+    </p>
+    <ul>
+      <li>Pair: <code>$OCV / USDC</code> or <code>$OCV / ETH</code></li>
+      <li>Provide protocol-owned liquidity from the fund’s treasury (e.g., $2M worth)</li>
+      <li>Use concentrated liquidity to control slippage and peg to fund NAV</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>3. LP Token Trading</h3>
+    <p>
+      LPs can list or swap their unlocked <strong>$OCV</strong> tokens. Buyers in the market can now gain exposure 
+      to your fund by buying tokens at market prices.
+    </p>
+    <p>
+      Price is set by supply/demand, but ideally anchored near the fund’s Net Asset Value (NAV) 
+      via oracle data or buybacks.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>4. Buyback and Burn Mechanism</h3>
+    <p>
+      You periodically use fund profits (from exits, token appreciation, etc.) to:
+    </p>
+    <ul>
+      <li>Buy <strong>$OCV</strong> tokens from the market</li>
+      <li>Burn them or redistribute to remaining LPs</li>
+    </ul>
+    <p>
+      This creates positive price pressure and incentivizes long-term holding.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>5. Optional: Whitelisted OTC Marketplace</h3>
+    <p>
+      A separate interface (like a custom OTC smart contract or partner platform) where:
+    </p>
+    <ul>
+      <li>Sellers post <strong>$OCV</strong> tokens for sale</li>
+      <li>Buyers negotiate directly</li>
+      <li>Price = Fund NAV or custom negotiation</li>
+    </ul>
+    <p>
+      Adds controlled liquidity if you want to avoid wild swings on DEXs.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>6. Price Anchoring with NAV Oracle</h3>
+    <p>
+      Use Chainlink or a custom oracle to publish NAV per <strong>$OCV</strong> token.
+    </p>
+    <ul>
+      <li>Helps prevent massive deviations between token price and real underlying value</li>
+      <li>Can be displayed in-app and used by DEX aggregators</li>
+    </ul>
+  </div>
+
+  <h2>🔐 Compliance Considerations</h2>
+  <div class="section">
+    <p>
+      You might restrict trades to KYC’d wallets using <code>ERC-1404</code>, <code>ERC-3643 (T-REX)</code>, 
+      or Solana token gating.
+    </p>
+    <p>
+      You can also integrate on-chain attestations or identity services 
+      (e.g., <strong>Quadrata</strong>, <strong>Lit Protocol</strong>).
+    </p>
+  </div>
+
+</body>
+</html>
