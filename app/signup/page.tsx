@@ -72,11 +72,10 @@ export default function SignupPage() {
         <div className="container grid gap-6 px-4 md:px-6 lg:grid-cols-2 lg:gap-10">
           <div className="space-y-6">
             <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Join Kapital
-              </h1>
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Join VentureToken</h1>
               <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Create your account to connect with innovative startups and forward-thinking investors.
+                Create your account to access digital-first VC fund investing with tokenized positions and USDC
+                settlement.
               </p>
             </div>
             <div className="space-y-4">
@@ -86,9 +85,7 @@ export default function SignupPage() {
                 </div>
                 <div>
                   <h3 className="font-semibold">Create Your Profile</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Set up your account with basic information
-                  </p>
+                  <p className="text-sm text-muted-foreground">Set up your account with basic information</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -98,9 +95,9 @@ export default function SignupPage() {
                 <div>
                   <h3 className="font-semibold">Complete Onboarding</h3>
                   <p className="text-sm text-muted-foreground">
-                    {activeTab === "startup"
-                      ? "Add your startup details and token preferences"
-                      : "Set your investment criteria and token requirements"}
+                    {activeTab === "lp"
+                      ? "Set your investment criteria and connect your wallet"
+                      : "Create your fund profile and tokenization parameters"}
                   </p>
                 </div>
               </div>
@@ -109,79 +106,50 @@ export default function SignupPage() {
                   <span className="text-lg font-bold text-primary">3</span>
                 </div>
                 <div>
-                  <h3 className="font-semibold">Connect and Fund</h3>
+                  <h3 className="font-semibold">Start Investing</h3>
                   <p className="text-sm text-muted-foreground">
-                    {activeTab === "startup"
-                      ? "Connect with investors and raise token-based funding"
-                      : "Discover startups and make token-based investments"}
+                    {activeTab === "lp"
+                      ? "Discover VC funds and make USDC-denominated investments"
+                      : "Launch your fund and start raising capital from LPs"}
                   </p>
                 </div>
               </div>
             </div>
           </div>
           <div>
-            <Tabs
-              defaultValue={defaultType}
-              value={activeTab}
-              onValueChange={setActiveTab}
-              className="w-full"
-            >
+            <Tabs defaultValue={defaultType} value={activeTab} onValueChange={setActiveTab} className="w-full">
               <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="startup">Startup</TabsTrigger>
-                <TabsTrigger value="vc">VC / Investor</TabsTrigger>
+                <TabsTrigger value="lp">Limited Partner</TabsTrigger>
+                <TabsTrigger value="gp">Fund Manager</TabsTrigger>
               </TabsList>
-              <TabsContent value="startup">
+              <TabsContent value="lp">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Startup Registration</CardTitle>
+                    <CardTitle>LP Registration</CardTitle>
                     <CardDescription>
-                      Create an account to showcase your startup and raise token-based funding
+                      Create an account to invest in digital-first VC funds with tokenized positions
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="space-y-2">
-                      <Label htmlFor="startup-name">Startup Name</Label>
-                      <Input
-                        id="startup-name"
-                        placeholder="Enter your startup name"
-                        value={startupName}
-                        onChange={(e) => setStartupName(e.target.value)}
-                      />
+                      <Label htmlFor="lp-name">Full Name / Entity Name</Label>
+                      <Input id="lp-name" placeholder="Enter your name or entity name" />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="startup-email">Email</Label>
-                      <Input
-                        id="startup-email"
-                        type="email"
-                        placeholder="Enter your email"
-                        value={startupEmail}
-                        onChange={(e) => setStartupEmail(e.target.value)}
-                      />
+                      <Label htmlFor="lp-email">Email</Label>
+                      <Input id="lp-email" type="email" placeholder="Enter your email" />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="startup-password">Password</Label>
-                      <Input
-                        id="startup-password"
-                        type="password"
-                        placeholder="Create a password"
-                        value={startupPassword}
-                        onChange={(e) => setStartupPassword(e.target.value)}
-                      />
+                      <Label htmlFor="lp-password">Password</Label>
+                      <Input id="lp-password" type="password" placeholder="Create a password" />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="startup-industry">Industry</Label>
-                      <Input
-                        id="startup-industry"
-                        placeholder="e.g., Fintech, Web3, AI"
-                        value={startupIndustry}
-                        onChange={(e) => setStartupIndustry(e.target.value)}
-                      />
+                      <Label htmlFor="lp-type">Investor Type</Label>
+                      <Input id="lp-type" placeholder="e.g., Individual, Family Office, DAO" />
                     </div>
                   </CardContent>
                   <CardFooter className="flex flex-col space-y-2">
-                    <Button className="w-full" onClick={createStartupAccount}>
-                      Create Startup Account
-                    </Button>
+                    <Button className="w-full">Create LP Account</Button>
                     <div className="text-center text-sm text-muted-foreground">
                       Already have an account?{" "}
                       <Link href="/login" className="text-primary underline-offset-4 hover:underline">
@@ -191,34 +159,34 @@ export default function SignupPage() {
                   </CardFooter>
                 </Card>
               </TabsContent>
-              <TabsContent value="vc">
+              <TabsContent value="gp">
                 <Card>
                   <CardHeader>
-                    <CardTitle>VC / Investor Registration</CardTitle>
+                    <CardTitle>Fund Manager Registration</CardTitle>
                     <CardDescription>
-                      Create an account to discover startups and make token-based investments
+                      Create an account to launch tokenized VC funds and raise capital from modern LPs
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="space-y-2">
-                      <Label htmlFor="vc-name">Fund / Investor Name</Label>
-                      <Input id="vc-name" placeholder="Enter your fund or investor name" />
+                      <Label htmlFor="gp-name">Fund / Firm Name</Label>
+                      <Input id="gp-name" placeholder="Enter your fund or firm name" />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="vc-email">Email</Label>
-                      <Input id="vc-email" type="email" placeholder="Enter your email" />
+                      <Label htmlFor="gp-email">Email</Label>
+                      <Input id="gp-email" type="email" placeholder="Enter your email" />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="vc-password">Password</Label>
-                      <Input id="vc-password" type="password" placeholder="Create a password" />
+                      <Label htmlFor="gp-password">Password</Label>
+                      <Input id="gp-password" type="password" placeholder="Create a password" />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="vc-investment-focus">Investment Focus</Label>
-                      <Input id="vc-investment-focus" placeholder="e.g., Early-stage Web3, DeFi" />
+                      <Label htmlFor="gp-focus">Investment Focus</Label>
+                      <Input id="gp-focus" placeholder="e.g., Early-stage Web3, Climate Tech" />
                     </div>
                   </CardContent>
                   <CardFooter className="flex flex-col space-y-2">
-                    <Button className="w-full">Create Investor Account</Button>
+                    <Button className="w-full">Create Fund Manager Account</Button>
                     <div className="text-center text-sm text-muted-foreground">
                       Already have an account?{" "}
                       <Link href="/login" className="text-primary underline-offset-4 hover:underline">

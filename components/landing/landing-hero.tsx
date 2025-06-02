@@ -10,22 +10,22 @@ export function LandingHero() {
           <div className="flex flex-col justify-center space-y-4">
             <div className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                Token-Based Funding for the Future of Innovation
+                Digital-First VC Fund Investing for the Modern LP
               </h1>
               <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                Connect startups and VCs through crypto-based tokens with built-in liquidity and secondary market
-                access.
+                Connect Limited Partners with venture capital funds through tokenized positions, USDC-denominated
+                investing, and built-in secondary liquidity.
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Button asChild size="lg">
-                <Link href="/signup?type=startup">
+                <Link href="/signup?type=lp">
                   For LPs
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <Link href="/signup?type=vc">For VCs</Link>
+                <Link href="/signup?type=gp">For Fund Managers</Link>
               </Button>
             </div>
           </div>

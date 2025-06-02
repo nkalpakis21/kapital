@@ -11,7 +11,7 @@ export default function LoginPage() {
       <div className="container flex h-16 items-center px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
           <Coins className="h-6 w-6 text-primary" />
-          <span className="text-xl font-bold">Kapital</span>
+          <span className="text-xl font-bold">VentureToken</span>
         </Link>
         <div className="ml-auto flex items-center gap-2">
           <Button variant="ghost" size="sm" asChild>
@@ -27,7 +27,7 @@ export default function LoginPage() {
           <div className="mx-auto max-w-md space-y-6">
             <div className="space-y-2 text-center">
               <h1 className="text-3xl font-bold">Welcome Back</h1>
-              <p className="text-muted-foreground">Log in to your Kapital account</p>
+              <p className="text-muted-foreground">Log in to your VentureToken account</p>
             </div>
             <Card>
               <CardHeader>

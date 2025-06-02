@@ -12,10 +12,10 @@ export function LandingTestimonials() {
               Testimonials
             </div>
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
-              Trusted by Innovative Startups and VCs
+              Trusted by Modern LPs and Innovative Fund Managers
             </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Hear from the founders and investors who are transforming funding with Kapital
+              Hear from the LPs and GPs who are transforming fund investing with VentureToken
             </p>
           </div>
         </div>
@@ -25,8 +25,8 @@ export function LandingTestimonials() {
               <div className="flex flex-col gap-4">
                 <Quote className="h-8 w-8 text-primary/50" />
                 <p className="text-lg">
-                  "Kapital transformed our fundraising process. We designed a token model that perfectly aligned
-                  with our growth strategy and connected with the right investors quickly."
+                  "VentureToken transformed our fund investing process. The USDC-denominated positions and tokenized
+                  structure gave us the flexibility and transparency we needed as a DAO treasury."
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="h-12 w-12 overflow-hidden rounded-full bg-muted">
@@ -40,7 +40,7 @@ export function LandingTestimonials() {
                   </div>
                   <div>
                     <h4 className="font-semibold">Sarah Chen</h4>
-                    <p className="text-sm text-muted-foreground">CEO, BlockFin Technologies</p>
+                    <p className="text-sm text-muted-foreground">Treasury Lead, MetaDAO</p>
                   </div>
                 </div>
               </div>
@@ -51,8 +51,8 @@ export function LandingTestimonials() {
               <div className="flex flex-col gap-4">
                 <Quote className="h-8 w-8 text-primary/50" />
                 <p className="text-lg">
-                  "As a VC firm, we've been able to diversify our portfolio with innovative token investments. The
-                  secondary market access has been a game-changer for our liquidity strategy."
+                  "As a fund manager, the platform's tokenization infrastructure allowed us to access a global LP base
+                  we never could have reached through traditional channels. The secondary liquidity is a game-changer."
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="h-12 w-12 overflow-hidden rounded-full bg-muted">
@@ -66,7 +66,7 @@ export function LandingTestimonials() {
                   </div>
                   <div>
                     <h4 className="font-semibold">Michael Rodriguez</h4>
-                    <p className="text-sm text-muted-foreground">Partner, Nexus Ventures</p>
+                    <p className="text-sm text-muted-foreground">Managing Partner, Nexus Ventures</p>
                   </div>
                 </div>
               </div>
@@ -77,8 +77,8 @@ export function LandingTestimonials() {
               <div className="flex flex-col gap-4">
                 <Quote className="h-8 w-8 text-primary/50" />
                 <p className="text-lg">
-                  "The milestone tracking feature has created unprecedented transparency between our team and investors.
-                  It's built trust and accelerated our development timeline."
+                  "The real-time performance tracking and smart contract vesting created unprecedented transparency in
+                  our fund investments. We can finally see exactly where our capital is deployed."
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="h-12 w-12 overflow-hidden rounded-full bg-muted">
@@ -92,7 +92,7 @@ export function LandingTestimonials() {
                   </div>
                   <div>
                     <h4 className="font-semibold">Aisha Johnson</h4>
-                    <p className="text-sm text-muted-foreground">CTO, DataChain Solutions</p>
+                    <p className="text-sm text-muted-foreground">Investment Director, Chen Family Office</p>
                   </div>
                 </div>
               </div>
@@ -103,8 +103,8 @@ export function LandingTestimonials() {
               <div className="flex flex-col gap-4">
                 <Quote className="h-8 w-8 text-primary/50" />
                 <p className="text-lg">
-                  "Kapital's platform helped us discover early-stage Web3 startups that perfectly matched our
-                  investment thesis. The token analysis tools simplified our due diligence process."
+                  "VentureToken's platform helped us discover early-stage Web3 funds that perfectly matched our
+                  investment thesis. The lower minimums and digital onboarding made participation seamless."
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="h-12 w-12 overflow-hidden rounded-full bg-muted">
@@ -118,7 +118,7 @@ export function LandingTestimonials() {
                   </div>
                   <div>
                     <h4 className="font-semibold">David Park</h4>
-                    <p className="text-sm text-muted-foreground">Managing Director, Crypto Capital</p>
+                    <p className="text-sm text-muted-foreground">Principal, Crypto Capital LP</p>
                   </div>
                 </div>
               </div>

@@ -23,8 +23,8 @@ export function LandingHeader() {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2">
-            {/* <Coins className="h-6 w-6 text-primary" /> */}
-            <span className="text-xl font-bold">Kapital</span>
+            <Coins className="h-6 w-6 text-primary" />
+            <span className="text-xl font-bold">VentureToken</span>
           </Link>
           <NavigationMenu className="hidden md:flex">
             <NavigationMenuList>
@@ -38,46 +38,49 @@ export function LandingHeader() {
                           className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                           href="#"
                         >
-                          <div className="mb-2 mt-4 text-lg font-medium">Raise Funding with Tokens</div>
+                          <div className="mb-2 mt-4 text-lg font-medium">Invest in Digital VC Funds</div>
                           <p className="text-sm leading-tight text-muted-foreground">
-                            Create token-based funding rounds with flexible terms and built-in liquidity
+                            Access tokenized LP positions with USDC investing and built-in liquidity
                           </p>
                         </a>
                       </NavigationMenuLink>
                     </li>
-                    <ListItem href="#" title="Pitch Deck Hosting">
-                      Upload and share your pitch materials securely
+                    <ListItem href="/lp/discover" title="Discover VC Funds">
+                      Browse vetted VC funds by thesis, geography, and performance
                     </ListItem>
-                    <ListItem href="#" title="Token Design">
-                      Create custom token models with our tools
+                    <ListItem href="/lp/fund-analysis" title="Fund Analysis">
+                      Evaluate fund strategies and historical returns
                     </ListItem>
-                    <ListItem href="#" title="Milestone Tracking">
-                      Set and track funding milestones transparently
+                    <ListItem href="/lp/portfolio" title="Portfolio Management">
+                      Track your fund investments and performance
+                    </ListItem>
+                    <ListItem href="/lp/marketplace" title="Secondary Market">
+                      Access liquidity through tokenized position trading
                     </ListItem>
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>For VCs</NavigationMenuTrigger>
+                <NavigationMenuTrigger>For Fund Managers</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-2">
-                    <ListItem href="/vc/discover" title="Discover Startups">
-                      Browse vetted startups seeking token-based funding
+                    <ListItem href="#" title="Fund Creation">
+                      Launch tokenized VC funds with smart contract infrastructure
                     </ListItem>
-                    <ListItem href="/vc/token-analysis" title="Token Analysis">
-                      Evaluate token models and potential returns
+                    <ListItem href="#" title="LP Management">
+                      Manage investor relations and capital calls
                     </ListItem>
-                    <ListItem href="/vc/portfolio" title="Portfolio Management">
-                      Track your token investments and performance
+                    <ListItem href="#" title="Performance Tracking">
+                      Real-time fund metrics and portfolio reporting
                     </ListItem>
-                    <ListItem href="/vc/marketplace" title="Secondary Market">
-                      Access liquidity through our token marketplace
+                    <ListItem href="#" title="Compliance Tools">
+                      Global KYC/AML and regulatory compliance workflows
                     </ListItem>
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link href="#" legacyBehavior passHref>
+                <Link href="/lp/marketplace" legacyBehavior passHref>
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>Marketplace</NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
@@ -108,18 +111,18 @@ export function LandingHeader() {
             </SheetTrigger>
             <SheetContent side="right">
               <SheetHeader>
-                <SheetTitle>Kapital</SheetTitle>
-                <SheetDescription>Connecting startups and VCs with token-based funding</SheetDescription>
+                <SheetTitle>VentureToken</SheetTitle>
+                <SheetDescription>Connecting LPs and fund managers with digital-first investing</SheetDescription>
               </SheetHeader>
               <div className="grid gap-4 py-4">
                 <Button variant="ghost" className="justify-start" asChild>
                   <Link href="#">For LPs</Link>
                 </Button>
                 <Button variant="ghost" className="justify-start" asChild>
-                  <Link href="#">For VCs</Link>
+                  <Link href="#">For Fund Managers</Link>
                 </Button>
                 <Button variant="ghost" className="justify-start" asChild>
-                  <Link href="#">Marketplace</Link>
+                  <Link href="/lp/marketplace">Marketplace</Link>
                 </Button>
                 <Button variant="ghost" className="justify-start" asChild>
                   <Link href="#">About</Link>

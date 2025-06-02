@@ -9,10 +9,10 @@ export function LandingFooter() {
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
               <Coins className="h-6 w-6 text-primary" />
-              <span className="text-xl font-bold">Kapital</span>
+              <span className="text-xl font-bold">VentureToken</span>
             </Link>
             <p className="text-sm text-muted-foreground">
-              Connecting startups and VCs with token-based funding and built-in liquidity.
+              Connecting LPs and fund managers with digital-first VC investing and tokenized positions.
             </p>
           </div>
           <div className="space-y-4">
@@ -25,17 +25,17 @@ export function LandingFooter() {
               </li>
               <li>
                 <Link href="#" className="text-muted-foreground hover:text-foreground">
-                  For VCs
+                  For Fund Managers
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-foreground">
+                <Link href="/lp/marketplace" className="text-muted-foreground hover:text-foreground">
                   Marketplace
                 </Link>
               </li>
               <li>
                 <Link href="#" className="text-muted-foreground hover:text-foreground">
-                  Token Models
+                  Fund Models
                 </Link>
               </li>
             </ul>
@@ -93,7 +93,7 @@ export function LandingFooter() {
         </div>
         <div className="mt-8 border-t pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Kapital. All rights reserved.
+            © {new Date().getFullYear()} VentureToken. All rights reserved.
           </p>
           <div className="flex gap-4">
             <Link href="#" className="text-muted-foreground hover:text-foreground">
