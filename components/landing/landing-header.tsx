@@ -29,7 +29,7 @@ export function LandingHeader() {
           <NavigationMenu className="hidden md:flex">
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>For Startups</NavigationMenuTrigger>
+                <NavigationMenuTrigger>For LPs</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-2">
                     <li className="row-span-3">
@@ -113,7 +113,7 @@ export function LandingHeader() {
               </SheetHeader>
               <div className="grid gap-4 py-4">
                 <Button variant="ghost" className="justify-start" asChild>
-                  <Link href="#">For Startups</Link>
+                  <Link href="#">For LPs</Link>
                 </Button>
                 <Button variant="ghost" className="justify-start" asChild>
                   <Link href="#">For VCs</Link>

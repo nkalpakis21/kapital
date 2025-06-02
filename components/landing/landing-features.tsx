@@ -54,7 +54,7 @@ export function LandingFeatures() {
               </div>
               <div className="space-y-1">
                 <h3 className="text-xl font-bold">Secure Messaging</h3>
-                <p className="text-muted-foreground">Built-in communication tools for startups and investors</p>
+                <p className="text-muted-foreground">Built-in communication tools for investors</p>
               </div>
             </div>
           </div>

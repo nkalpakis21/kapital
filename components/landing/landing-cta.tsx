@@ -19,7 +19,7 @@ export function LandingCta() {
           <div className="flex flex-col gap-2 min-[400px]:flex-row">
             <Button size="lg" variant="secondary" asChild>
               <Link href="/signup?type=startup">
-                For Startups
+                For LPs
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>

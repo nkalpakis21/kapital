@@ -20,7 +20,7 @@ export function LandingFooter() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="#" className="text-muted-foreground hover:text-foreground">
-                  For Startups
+                  For LPs
                 </Link>
               </li>
               <li>
