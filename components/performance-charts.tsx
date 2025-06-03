@@ -1,71 +1,63 @@
 "use client"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { TrendingUp } from "lucide-react"
 
 const performanceData = [
   {
     name: "Nexus Ventures Fund I",
-    irr: 24.5,
-    progress: 75,
-    color: "bg-blue-500",
+    value: "$847,392",
+    return: "+24.5%",
+    returnAmount: "+$156,847",
+    isPositive: true,
   },
   {
     name: "Crypto Capital Early Stage",
-    irr: 18.2,
-    progress: 60,
-    color: "bg-blue-500",
+    value: "$523,847",
+    return: "+18.2%",
+    returnAmount: "+$80,392",
+    isPositive: true,
   },
   {
     name: "BlockChain Ventures II",
-    irr: 12.8,
-    progress: 45,
-    color: "bg-blue-500",
+    value: "$392,847",
+    return: "+12.8%",
+    returnAmount: "+$44,583",
+    isPositive: true,
   },
   {
     name: "Future Labs Web3 Fund",
-    irr: -2.1,
-    progress: 20,
-    color: "bg-red-500",
+    value: "$183,294",
+    return: "-2.1%",
+    returnAmount: "-$3,928",
+    isPositive: false,
   },
 ]
 
 export function PerformanceCharts() {
   return (
-    <Card className="shadow-sm bg-white">
-      <CardHeader className="pb-4">
-        <div className="flex items-center justify-between">
-          <CardTitle className="text-lg font-medium flex items-center gap-2">
-            <TrendingUp className="h-4 w-4" />
-            Fund Performance
-          </CardTitle>
-        </div>
+    <Card className="border border-gray-200 shadow-none">
+      <CardHeader className="pb-4 border-b border-gray-100">
+        <CardTitle className="text-lg font-medium text-gray-900">Holdings</CardTitle>
       </CardHeader>
-      <CardContent className="space-y-6">
-        {performanceData.map((fund, index) => (
-          <div key={fund.name} className="space-y-2">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="font-medium text-sm">{fund.name}</p>
-                <p className="text-xs text-muted-foreground">Vintage 202{index + 1}</p>
-              </div>
-              <div className="text-right">
-                <p className={`text-base font-medium ${fund.irr > 0 ? "text-emerald-600" : "text-red-600"}`}>
-                  {fund.irr > 0 ? "+" : ""}
-                  {fund.irr}%
-                </p>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="h-1.5 rounded-full bg-slate-100">
-                <div
-                  className={`h-1.5 rounded-full ${fund.color} transition-all duration-1000 ease-out`}
-                  style={{ width: `${fund.progress}%` }}
-                />
+      <CardContent className="p-0">
+        <div className="divide-y divide-gray-100">
+          {performanceData.map((fund) => (
+            <div key={fund.name} className="p-4 hover:bg-gray-50 transition-colors">
+              <div className="flex items-center justify-between">
+                <div className="flex-1">
+                  <p className="font-medium text-gray-900">{fund.name}</p>
+                  <p className="text-sm text-gray-500 mt-1">{fund.value}</p>
+                </div>
+                <div className="text-right">
+                  <p className={`font-medium ${fund.isPositive ? "text-green-600" : "text-red-600"}`}>{fund.return}</p>
+                  <p className={`text-sm ${fund.isPositive ? "text-green-600" : "text-red-600"}`}>
+                    {fund.returnAmount}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </CardContent>
     </Card>
   )

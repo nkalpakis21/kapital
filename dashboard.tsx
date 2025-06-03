@@ -15,14 +15,14 @@ export default function Dashboard() {
       <AppSidebar />
       <SidebarInset>
         <DashboardHeader />
-        <div className="flex flex-1 flex-col gap-8 p-8 bg-white">
+        <div className="flex flex-1 flex-col gap-6 p-6 bg-gray-50">
           <FundOverview />
-          <div className="grid gap-8 lg:grid-cols-3">
-            <div className="lg:col-span-2 space-y-8">
+          <div className="grid gap-6 lg:grid-cols-3">
+            <div className="lg:col-span-2 space-y-6">
               <PerformanceCharts />
               <RecentActivity />
             </div>
-            <div className="space-y-8">
+            <div className="space-y-6">
               <FundMetrics />
               <MarketInsights />
             </div>

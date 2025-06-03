@@ -1,17 +1,6 @@
 "use client"
 
-import {
-  BarChart3,
-  Building2,
-  DollarSign,
-  FileText,
-  Home,
-  PieChart,
-  Settings,
-  TrendingUp,
-  Coins,
-  Zap,
-} from "lucide-react"
+import { BarChart3, Building2, DollarSign, FileText, Home, PieChart, Settings, TrendingUp, Coins } from "lucide-react"
 
 import {
   Sidebar,
@@ -19,7 +8,6 @@ import {
   SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
@@ -36,7 +24,7 @@ const navigationItems = [
     isActive: true,
   },
   {
-    title: "Fund Portfolio",
+    title: "Portfolio",
     url: "#",
     icon: PieChart,
   },
@@ -51,7 +39,7 @@ const navigationItems = [
     icon: BarChart3,
   },
   {
-    title: "Fund Discovery",
+    title: "Discover",
     url: "#",
     icon: Building2,
   },
@@ -61,7 +49,7 @@ const navigationItems = [
     icon: DollarSign,
   },
   {
-    title: "Secondary Market",
+    title: "Market",
     url: "#",
     icon: Coins,
   },
@@ -74,21 +62,19 @@ const navigationItems = [
 
 export function AppSidebar() {
   return (
-    <Sidebar className="bg-slate-50">
-      <SidebarHeader className="p-6">
+    <Sidebar className="border-r border-gray-200 bg-white">
+      <SidebarHeader className="p-6 border-b border-gray-100">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-white">
-            <Zap className="h-5 w-5" />
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white">
+            <span className="text-sm font-bold">K</span>
           </div>
           <div>
-            <p className="text-lg font-bold text-blue-600">Kapital</p>
-            <p className="text-xs text-muted-foreground">Fund Investment Platform</p>
+            <p className="text-lg font-semibold text-gray-900">Kapital</p>
           </div>
         </div>
       </SidebarHeader>
-      <SidebarContent className="px-4">
+      <SidebarContent className="p-4">
         <SidebarGroup>
-          <SidebarGroupLabel className="text-xs font-medium text-muted-foreground mb-2">NAVIGATION</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu className="space-y-1">
               {navigationItems.map((item) => (
@@ -96,11 +82,11 @@ export function AppSidebar() {
                   <SidebarMenuButton
                     asChild
                     isActive={item.isActive}
-                    className="h-10 rounded-md transition-all hover:bg-slate-100 data-[active=true]:bg-blue-50 data-[active=true]:text-blue-600"
+                    className="h-12 rounded-lg transition-colors hover:bg-gray-50 data-[active=true]:bg-blue-50 data-[active=true]:text-blue-600 data-[active=true]:font-medium"
                   >
-                    <a href={item.url} className="flex items-center gap-3">
-                      <item.icon className="h-4 w-4" />
-                      <span className="font-medium">{item.title}</span>
+                    <a href={item.url} className="flex items-center gap-3 px-3">
+                      <item.icon className="h-5 w-5" />
+                      <span>{item.title}</span>
                     </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -109,15 +95,15 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter className="p-4">
-        <div className="flex items-center gap-3 p-3 rounded-md bg-slate-100">
-          <Avatar className="h-9 w-9">
-            <AvatarImage src="/placeholder.svg?height=36&width=36" />
-            <AvatarFallback className="bg-blue-600 text-white text-sm font-medium">JD</AvatarFallback>
+      <SidebarFooter className="p-4 border-t border-gray-100">
+        <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+          <Avatar className="h-10 w-10">
+            <AvatarImage src="/placeholder.svg?height=40&width=40" />
+            <AvatarFallback className="bg-gray-200 text-gray-700 font-medium">JD</AvatarFallback>
           </Avatar>
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-medium truncate">John Doe</p>
-            <p className="text-xs text-muted-foreground truncate">Limited Partner</p>
+            <p className="text-sm font-medium text-gray-900 truncate">John Doe</p>
+            <p className="text-xs text-gray-500 truncate">john@example.com</p>
           </div>
           <SidebarMenuButton size="sm" asChild className="h-8 w-8 rounded-md">
             <a href="#">

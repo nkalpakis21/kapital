@@ -1,52 +1,47 @@
 "use client"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { TrendingUp, Zap, Globe } from "lucide-react"
 
 const insights = [
   {
-    title: "Market Opportunity",
-    description: "Web3 funds showing 23% higher returns",
-    trend: "+23%",
-    icon: TrendingUp,
-    color: "text-emerald-600",
+    title: "Market Cap",
+    value: "$2.1T",
+    change: "+2.3%",
+    isPositive: true,
   },
   {
-    title: "Hot Sector",
-    description: "AI infrastructure funds oversubscribed",
-    trend: "Hot",
-    icon: Zap,
-    color: "text-blue-600",
+    title: "VC Funding",
+    value: "$47.2B",
+    change: "+12.8%",
+    isPositive: true,
   },
   {
-    title: "Global Trend",
-    description: "APAC funds gaining momentum",
-    trend: "Rising",
-    icon: Globe,
-    color: "text-blue-600",
+    title: "Web3 Index",
+    value: "1,847",
+    change: "-0.8%",
+    isPositive: false,
   },
 ]
 
 export function MarketInsights() {
   return (
-    <Card className="shadow-sm bg-white">
-      <CardHeader className="pb-4">
-        <CardTitle className="text-lg font-medium">Market Insights</CardTitle>
+    <Card className="border border-gray-200 shadow-none">
+      <CardHeader className="pb-4 border-b border-gray-100">
+        <CardTitle className="text-lg font-medium text-gray-900">Market</CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="space-y-3">
-          {insights.map((insight, index) => (
-            <div key={index} className="p-3 rounded-md bg-slate-50">
-              <div className="flex items-start gap-3">
-                <div className="p-1.5 rounded-md bg-white">
-                  <insight.icon className={`h-3.5 w-3.5 ${insight.color}`} />
+      <CardContent className="p-0">
+        <div className="divide-y divide-gray-100">
+          {insights.map((insight) => (
+            <div key={insight.title} className="p-4">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-gray-600">{insight.title}</p>
+                  <p className="text-lg font-medium text-gray-900 mt-1">{insight.value}</p>
                 </div>
-                <div className="flex-1 space-y-1">
-                  <div className="flex items-center justify-between">
-                    <p className="font-medium text-sm">{insight.title}</p>
-                    <p className={`text-xs font-medium ${insight.color}`}>{insight.trend}</p>
-                  </div>
-                  <p className="text-xs text-muted-foreground">{insight.description}</p>
+                <div className="text-right">
+                  <p className={`text-sm font-medium ${insight.isPositive ? "text-green-600" : "text-red-600"}`}>
+                    {insight.change}
+                  </p>
                 </div>
               </div>
             </div>
