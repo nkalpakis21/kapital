@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { FirestoreService } from '@/lib/firebase/firestore'
+import { GPService } from '@/lib/services/gpService'
 
 export async function POST(req: Request) {
   try {
@@ -13,9 +13,9 @@ export async function POST(req: Request) {
       )
     }
 
-    // Create GP in database
-    const firestore = FirestoreService.getInstance()
-    const gpId = await firestore.create('gps', {
+    // Create GP using the service
+    const gpService = new GPService()
+    const gpId = await gpService.createGP({
       name,
       email,
       focus,

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { FirestoreService } from '@/lib/firebase/firestore'
+import { LPService } from '@/lib/services/lpService'
 
 export async function POST(req: Request) {
   try {
@@ -13,9 +13,9 @@ export async function POST(req: Request) {
       )
     }
 
-    // Create LP in database
-    const firestore = FirestoreService.getInstance()
-    const lpId = await firestore.create('lps', {
+    // Create LP using the service
+    const lpService = new LPService()
+    const lpId = await lpService.createLP({
       name,
       email,
       type,
