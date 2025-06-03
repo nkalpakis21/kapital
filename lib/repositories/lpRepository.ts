@@ -43,4 +43,4 @@ export class LPRepository {
       throw new Error('Failed to fetch LP')
     }
   }
-} 
+}

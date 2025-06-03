@@ -35,4 +35,4 @@ export class LPService {
     console.info('[LPService] Calling getLPByUserId with:', userId)
     return await this.repository.getByUserId(userId)
   }
-} 
+}

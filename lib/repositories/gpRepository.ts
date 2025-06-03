@@ -43,4 +43,4 @@ export class GPRepository {
       throw new Error('Failed to fetch GP')
     }
   }
-} 
+}

@@ -36,4 +36,4 @@ export class GPService {
     console.info('[GPService] Calling getGPByUserId with:', userId)
     return await this.repository.getByUserId(userId)
   }
-} 
+}
