@@ -35,28 +35,24 @@ const performanceData = [
 
 export function PerformanceCharts() {
   return (
-    <Card className="border-0 shadow-none">
-      <CardHeader className="pb-4 border-b border-border/20">
-        <CardTitle className="text-lg font-medium text-foreground">Holdings</CardTitle>
+    <Card className="border border-border bg-card">
+      <CardHeader className="pb-4">
+        <CardTitle className="text-xl font-semibold text-foreground">Holdings</CardTitle>
       </CardHeader>
       <CardContent className="p-0">
-        <div className="divide-y divide-border/10">
+        <div className="divide-y divide-border">
           {performanceData.map((fund) => (
-            <div key={fund.name} className="p-4 hover:bg-accent/50 transition-colors">
+            <div key={fund.name} className="p-6 hover:bg-muted/50 transition-colors">
               <div className="flex items-center justify-between">
                 <div className="flex-1">
                   <p className="font-medium text-foreground">{fund.name}</p>
                   <p className="text-sm text-muted-foreground mt-1">{fund.value}</p>
                 </div>
                 <div className="text-right">
-                  <p
-                    className={`font-medium ${fund.isPositive ? "text-[rgb(var(--positive))]" : "text-[rgb(var(--negative))]"}`}
-                  >
+                  <p className={`font-semibold ${fund.isPositive ? "text-green-600" : "text-red-600"}`}>
                     {fund.return}
                   </p>
-                  <p
-                    className={`text-sm ${fund.isPositive ? "text-[rgb(var(--positive))]" : "text-[rgb(var(--negative))]"}`}
-                  >
+                  <p className={`text-sm ${fund.isPositive ? "text-green-600" : "text-red-600"}`}>
                     {fund.returnAmount}
                   </p>
                 </div>

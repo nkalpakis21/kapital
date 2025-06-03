@@ -25,23 +25,21 @@ const insights = [
 
 export function MarketInsights() {
   return (
-    <Card className="border-0 shadow-none">
-      <CardHeader className="pb-4 border-b border-border/20">
-        <CardTitle className="text-lg font-medium text-foreground">Market</CardTitle>
+    <Card className="border border-border bg-card">
+      <CardHeader className="pb-4">
+        <CardTitle className="text-xl font-semibold text-foreground">Market</CardTitle>
       </CardHeader>
       <CardContent className="p-0">
-        <div className="divide-y divide-border/10">
+        <div className="divide-y divide-border">
           {insights.map((insight) => (
-            <div key={insight.title} className="p-4">
+            <div key={insight.title} className="p-6">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-muted-foreground">{insight.title}</p>
-                  <p className="text-lg font-medium text-foreground mt-1">{insight.value}</p>
+                  <p className="text-xl font-semibold text-foreground mt-1">{insight.value}</p>
                 </div>
                 <div className="text-right">
-                  <p
-                    className={`text-sm font-medium ${insight.isPositive ? "text-[rgb(var(--positive))]" : "text-[rgb(var(--negative))]"}`}
-                  >
+                  <p className={`text-sm font-semibold ${insight.isPositive ? "text-green-600" : "text-red-600"}`}>
                     {insight.change}
                   </p>
                 </div>

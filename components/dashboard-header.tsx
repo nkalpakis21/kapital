@@ -8,11 +8,11 @@ import { ModeToggle } from "@/components/mode-toggle"
 
 export function DashboardHeader() {
   return (
-    <header className="flex h-16 shrink-0 items-center gap-4 px-6 bg-card border-b border-border/20">
+    <header className="flex h-16 shrink-0 items-center gap-4 px-6 bg-background border-b border-border">
       <SidebarTrigger className="-ml-1" />
       <div className="flex flex-1 items-center justify-between">
         <div>
-          <h1 className="text-xl font-medium text-foreground">Dashboard</h1>
+          <h1 className="text-xl font-semibold text-foreground">Dashboard</h1>
         </div>
         <div className="flex items-center gap-4">
           <div className="relative">
@@ -20,13 +20,13 @@ export function DashboardHeader() {
             <Input
               type="search"
               placeholder="Search funds, transactions..."
-              className="w-[300px] pl-10 bg-accent border-border/20 focus:border-ring focus:ring-ring"
+              className="w-[300px] pl-10 bg-background border-border"
             />
           </div>
           <ModeToggle />
           <Button variant="ghost" size="icon" className="relative">
             <Bell className="h-5 w-5 text-muted-foreground" />
-            <span className="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-primary"></span>
+            <span className="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-blue-600"></span>
           </Button>
         </div>
       </div>

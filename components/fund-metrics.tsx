@@ -22,17 +22,17 @@ const fundMetrics = [
 
 export function FundMetrics() {
   return (
-    <Card className="border-0 shadow-none">
-      <CardHeader className="pb-4 border-b border-border/20">
-        <CardTitle className="text-lg font-medium text-foreground">Account</CardTitle>
+    <Card className="border border-border bg-card">
+      <CardHeader className="pb-4">
+        <CardTitle className="text-xl font-semibold text-foreground">Account</CardTitle>
       </CardHeader>
       <CardContent className="p-0">
-        <div className="divide-y divide-border/10">
+        <div className="divide-y divide-border">
           {fundMetrics.map((metric) => (
-            <div key={metric.label} className="p-4">
-              <div className="space-y-1">
+            <div key={metric.label} className="p-6">
+              <div className="space-y-2">
                 <p className="text-sm text-muted-foreground">{metric.label}</p>
-                <p className="text-xl font-medium text-foreground">{metric.value}</p>
+                <p className="text-2xl font-semibold text-foreground">{metric.value}</p>
                 <p className="text-xs text-muted-foreground">{metric.subtext}</p>
               </div>
             </div>
