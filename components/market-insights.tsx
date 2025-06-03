@@ -25,12 +25,12 @@ const insights = [
 
 export function MarketInsights() {
   return (
-    <Card className="border border-gray-200 shadow-none">
-      <CardHeader className="pb-4 border-b border-gray-100">
+    <Card className="border border-gray-100 shadow-none">
+      <CardHeader className="pb-4 border-b border-gray-50">
         <CardTitle className="text-lg font-medium text-gray-900">Market</CardTitle>
       </CardHeader>
       <CardContent className="p-0">
-        <div className="divide-y divide-gray-100">
+        <div className="divide-y divide-gray-50">
           {insights.map((insight) => (
             <div key={insight.title} className="p-4">
               <div className="flex items-center justify-between">

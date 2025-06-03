@@ -7,7 +7,7 @@ import { SidebarTrigger } from "@/components/ui/sidebar"
 
 export function DashboardHeader() {
   return (
-    <header className="flex h-16 shrink-0 items-center gap-4 px-6 bg-white border-b border-gray-200">
+    <header className="flex h-16 shrink-0 items-center gap-4 px-6 bg-white border-b border-gray-100">
       <SidebarTrigger className="-ml-1" />
       <div className="flex flex-1 items-center justify-between">
         <div>
@@ -19,7 +19,7 @@ export function DashboardHeader() {
             <Input
               type="search"
               placeholder="Search funds, transactions..."
-              className="w-[300px] pl-10 border-gray-300 focus:border-blue-500 focus:ring-blue-500"
+              className="w-[300px] pl-10 border-gray-200 focus:border-blue-500 focus:ring-blue-500"
             />
           </div>
           <Button variant="ghost" size="icon" className="relative">

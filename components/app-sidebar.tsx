@@ -62,8 +62,8 @@ const navigationItems = [
 
 export function AppSidebar() {
   return (
-    <Sidebar className="border-r border-gray-200 bg-white">
-      <SidebarHeader className="p-6 border-b border-gray-100">
+    <Sidebar className="border-r border-gray-100 bg-white">
+      <SidebarHeader className="p-6 border-b border-gray-50">
         <div className="flex items-center gap-3">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white">
             <span className="text-sm font-bold">K</span>
@@ -95,7 +95,7 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter className="p-4 border-t border-gray-100">
+      <SidebarFooter className="p-4 border-t border-gray-50">
         <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
           <Avatar className="h-10 w-10">
             <AvatarImage src="/placeholder.svg?height=40&width=40" />

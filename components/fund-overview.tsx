@@ -40,7 +40,7 @@ export function FundOverview() {
 
       <div className="grid gap-4 md:grid-cols-3">
         {portfolioData.slice(1).map((item) => (
-          <Card key={item.title} className="border border-gray-200 shadow-none">
+          <Card key={item.title} className="border border-gray-100 shadow-none">
             <CardContent className="p-4">
               <div className="space-y-1">
                 <p className="text-sm text-gray-600">{item.title}</p>
