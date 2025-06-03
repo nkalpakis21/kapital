@@ -22,14 +22,17 @@ export class LPService {
   }
 
   async createLP(data: Omit<LP, 'id' | 'createdAt' | 'updatedAt'>): Promise<string> {
+    console.info('[LPService] Calling createLP with:', data)
     return await this.repository.create(data)
   }
 
   async getLPById(id: string): Promise<LP | null> {
+    console.info('[LPService] Calling getLPById with:', id)
     return await this.repository.getById(id)
   }
 
   async getLPByUserId(userId: string): Promise<LP | null> {
+    console.info('[LPService] Calling getLPByUserId with:', userId)
     return await this.repository.getByUserId(userId)
   }
 } 

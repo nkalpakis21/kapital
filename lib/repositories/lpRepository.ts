@@ -10,6 +10,7 @@ export class LPRepository {
   }
 
   async create(data: Omit<LP, 'id' | 'createdAt' | 'updatedAt'>): Promise<string> {
+    console.info('[LPRepository] Creating LP:', data)
     try {
       return await this.firestore.create<LP>(this.collectionName, data)
     } catch (error) {
@@ -19,6 +20,7 @@ export class LPRepository {
   }
 
   async getById(id: string): Promise<LP | null> {
+    console.info('[LPRepository] Fetching LP by id:', id)
     try {
       return await this.firestore.getById<LP>(this.collectionName, id)
     } catch (error) {
@@ -28,6 +30,7 @@ export class LPRepository {
   }
 
   async getByUserId(userId: string): Promise<LP | null> {
+    console.info('[LPRepository] Fetching LP by userId:', userId)
     try {
       const lps = await this.firestore.getByField<LP>(
         this.collectionName,
