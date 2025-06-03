@@ -1,4 +1,4 @@
-import { FirestoreService } from '../firebase/firestore'
+import { GPRepository } from '../repositories/gpRepository'
 
 export interface GP {
   id?: string
@@ -16,46 +16,24 @@ export interface GP {
 }
 
 export class GPService {
-  private firestore: FirestoreService
-  private collectionName = 'gps'
+  private repository: GPRepository
 
   constructor() {
-    this.firestore = FirestoreService.getInstance()
+    this.repository = new GPRepository()
   }
 
   async createGP(data: Omit<GP, 'id' | 'createdAt' | 'updatedAt'>): Promise<string> {
-    try {
-      const gpId = await this.firestore.create<GP>(
-        this.collectionName,
-        data
-      )
-      return gpId
-    } catch (error) {
-      console.error('Error creating GP:', error)
-      throw new Error('Failed to create GP')
-    }
+    console.info('[GPService] Calling createGP with:', data)
+    return await this.repository.create(data)
   }
 
   async getGPById(id: string): Promise<GP | null> {
-    try {
-      return await this.firestore.getById<GP>(this.collectionName, id)
-    } catch (error) {
-      console.error('Error fetching GP:', error)
-      throw new Error('Failed to fetch GP')
-    }
+    console.info('[GPService] Calling getGPById with:', id)
+    return await this.repository.getById(id)
   }
 
   async getGPByUserId(userId: string): Promise<GP | null> {
-    try {
-      const gps = await this.firestore.getByField<GP>(
-        this.collectionName,
-        'userId',
-        userId
-      )
-      return gps[0] || null
-    } catch (error) {
-      console.error('Error fetching GP by user ID:', error)
-      throw new Error('Failed to fetch GP')
-    }
+    console.info('[GPService] Calling getGPByUserId with:', userId)
+    return await this.repository.getByUserId(userId)
   }
 } 
