@@ -62,14 +62,14 @@ const navigationItems = [
 
 export function AppSidebar() {
   return (
-    <Sidebar className="border-r border-gray-100 bg-white">
-      <SidebarHeader className="p-6 border-b border-gray-50">
+    <Sidebar className="border-r border-sidebar-border bg-sidebar">
+      <SidebarHeader className="p-6 border-b border-sidebar-border/50">
         <div className="flex items-center gap-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
             <span className="text-sm font-bold">K</span>
           </div>
           <div>
-            <p className="text-lg font-semibold text-gray-900">Kapital</p>
+            <p className="text-lg font-semibold text-sidebar-foreground">Kapital</p>
           </div>
         </div>
       </SidebarHeader>
@@ -82,7 +82,7 @@ export function AppSidebar() {
                   <SidebarMenuButton
                     asChild
                     isActive={item.isActive}
-                    className="h-12 rounded-lg transition-colors hover:bg-gray-50 data-[active=true]:bg-blue-50 data-[active=true]:text-blue-600 data-[active=true]:font-medium"
+                    className="h-12 rounded-lg transition-colors hover:bg-sidebar-accent data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground data-[active=true]:font-medium"
                   >
                     <a href={item.url} className="flex items-center gap-3 px-3">
                       <item.icon className="h-5 w-5" />
@@ -95,15 +95,15 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter className="p-4 border-t border-gray-50">
-        <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+      <SidebarFooter className="p-4 border-t border-sidebar-border/50">
+        <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-sidebar-accent transition-colors">
           <Avatar className="h-10 w-10">
             <AvatarImage src="/placeholder.svg?height=40&width=40" />
-            <AvatarFallback className="bg-gray-200 text-gray-700 font-medium">JD</AvatarFallback>
+            <AvatarFallback className="bg-muted text-muted-foreground font-medium">JD</AvatarFallback>
           </Avatar>
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-medium text-gray-900 truncate">John Doe</p>
-            <p className="text-xs text-gray-500 truncate">john@example.com</p>
+            <p className="text-sm font-medium text-sidebar-foreground truncate">John Doe</p>
+            <p className="text-xs text-sidebar-foreground/70 truncate">john@example.com</p>
           </div>
           <SidebarMenuButton size="sm" asChild className="h-8 w-8 rounded-md">
             <a href="#">
