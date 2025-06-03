@@ -37,11 +37,11 @@ const performanceData = [
 
 export function PerformanceCharts() {
   return (
-    <Card className="border-0 shadow-lg shadow-black/5 bg-white/80 backdrop-blur-sm">
+    <Card className="shadow-lg shadow-black/5 bg-white/80 backdrop-blur-sm">
       <CardHeader className="pb-4">
         <div className="flex items-center justify-between">
           <CardTitle className="text-xl font-bold">Fund Performance</CardTitle>
-          <Badge variant="secondary" className="bg-blue-100 text-blue-700 border-0">
+          <Badge variant="secondary" className="bg-blue-100 text-blue-700">
             <TrendingUp className="h-3 w-3 mr-1" />
             Live
           </Badge>

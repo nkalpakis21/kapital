@@ -40,7 +40,7 @@ const fundMetrics = [
 
 export function FundMetrics() {
   return (
-    <Card className="border-0 shadow-lg shadow-black/5 bg-white/80 backdrop-blur-sm">
+    <Card className="shadow-lg shadow-black/5 bg-white/80 backdrop-blur-sm">
       <CardHeader className="pb-4">
         <CardTitle className="text-xl font-bold flex items-center gap-2">
           <Building2 className="h-5 w-5" />
@@ -50,10 +50,7 @@ export function FundMetrics() {
       <CardContent>
         <div className="space-y-4">
           {fundMetrics.map((fund) => (
-            <div
-              key={fund.name}
-              className="p-4 rounded-xl bg-gradient-to-r from-slate-50 to-blue-50/30 border border-border/40"
-            >
+            <div key={fund.name} className="p-4 rounded-xl bg-gradient-to-r from-slate-50 to-blue-50/30">
               <div className="flex items-start gap-3">
                 <Avatar className="h-10 w-10 ring-2 ring-white shadow-sm">
                   <AvatarFallback className={`bg-gradient-to-br ${fund.color} text-white text-xs font-bold`}>
@@ -68,7 +65,7 @@ export function FundMetrics() {
                         <Badge variant="outline" className="text-xs h-5">
                           {fund.vintage}
                         </Badge>
-                        <Badge className="text-xs h-5 bg-emerald-100 text-emerald-700 border-0">{fund.status}</Badge>
+                        <Badge className="text-xs h-5 bg-emerald-100 text-emerald-700">{fund.status}</Badge>
                       </div>
                     </div>
                     <div className="text-right">

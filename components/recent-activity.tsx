@@ -54,7 +54,7 @@ const recentActivities = [
 
 export function RecentActivity() {
   return (
-    <Card className="border-0 shadow-lg shadow-black/5 bg-white/80 backdrop-blur-sm">
+    <Card className="shadow-lg shadow-black/5 bg-white/80 backdrop-blur-sm">
       <CardHeader className="pb-4">
         <CardTitle className="text-xl font-bold flex items-center gap-2">
           <Activity className="h-5 w-5" />
@@ -80,7 +80,7 @@ export function RecentActivity() {
               <div className="flex-1 space-y-1">
                 <div className="flex items-center gap-2">
                   <p className="text-sm font-semibold leading-none">{activity.description}</p>
-                  <Badge variant="secondary" className="text-xs h-5 bg-slate-100 text-slate-600 border-0">
+                  <Badge variant="secondary" className="text-xs h-5 bg-slate-100 text-slate-600">
                     {activity.type}
                   </Badge>
                 </div>

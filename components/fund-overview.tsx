@@ -46,7 +46,7 @@ export function FundOverview() {
   return (
     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
       {portfolioData.map((item) => (
-        <Card key={item.title} className="border-0 shadow-lg shadow-black/5 bg-white/80 backdrop-blur-sm">
+        <Card key={item.title} className="shadow-lg shadow-black/5 bg-white/80 backdrop-blur-sm">
           <CardContent className="p-6">
             <div className="flex items-center justify-between mb-4">
               <div className={`p-3 rounded-xl bg-gradient-to-br ${item.bgGradient}`}>

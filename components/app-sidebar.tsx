@@ -77,8 +77,8 @@ const navigationItems = [
 
 export function AppSidebar() {
   return (
-    <Sidebar className="border-r-0">
-      <SidebarHeader className="border-b border-border/40 p-6">
+    <Sidebar>
+      <SidebarHeader className="p-6">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 text-white shadow-lg">
             <Zap className="h-5 w-5" />
@@ -111,7 +111,7 @@ export function AppSidebar() {
                         <span className="font-medium">{item.title}</span>
                       </div>
                       {item.badge && (
-                        <Badge variant="secondary" className="h-5 text-xs bg-blue-100 text-blue-700 border-0">
+                        <Badge variant="secondary" className="h-5 text-xs bg-blue-100 text-blue-700">
                           {item.badge}
                         </Badge>
                       )}
@@ -123,8 +123,8 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter className="border-t border-border/40 p-4">
-        <div className="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-slate-50 to-blue-50/50 border border-border/40">
+      <SidebarFooter className="p-4">
+        <div className="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-slate-50 to-blue-50/50">
           <Avatar className="h-9 w-9 ring-2 ring-blue-100">
             <AvatarImage src="/placeholder.svg?height=36&width=36" />
             <AvatarFallback className="bg-gradient-to-br from-blue-500 to-purple-500 text-white text-sm font-semibold">
