@@ -20,7 +20,7 @@ import React, {
   interface AuthContextType {
     currentUser: User | null;
     login: (email: string, password: string) => Promise<void>;
-    signup: (email: string, password: string) => Promise<void>;
+    signup: (email: string, password: string) => Promise<User>;
     logout: () => Promise<void>;
     signInWithGoogle: () => Promise<void>;
   }
@@ -52,7 +52,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }, []);
   
     async function signup(email: string, password: string) {
-      await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      return userCredential.user;
     }
   
     async function login(email: string, password: string) {

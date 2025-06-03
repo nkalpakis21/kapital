@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import {
@@ -17,38 +18,127 @@ import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ArrowLeft, Coins } from "lucide-react"
 import { useAuth } from "@/contexts/AuthContext"
-import { User } from "firebase/auth"
-import { StartupService } from "@/lib/services/startupService"
-import { useStartup } from "@/hooks/useStartup"
+import { LPService } from "@/lib/services/lpService"
+import { GPService } from "@/lib/services/gpService"
+import { toast } from "sonner"
 
 export default function SignupPage() {
+  const router = useRouter()
   const searchParams = useSearchParams()
-  const defaultType = searchParams.get("type") || "startup"
+  const defaultType = searchParams.get("type") || "lp"
   const [activeTab, setActiveTab] = useState(defaultType)
-  const { signup, currentUser } = useAuth()
-  const { createStartup } = useStartup()
-  const [startupEmail, setStartupEmail] = useState("")
-  const [startupPassword, setStartupPassword] = useState("")
-  const [startupName, setStartupName] = useState("")
-  const [startupIndustry, setStartupIndustry] = useState("")
+  const { signup } = useAuth()
+  const [isLoading, setIsLoading] = useState(false)
 
-  const createStartupAccount = async () => {
+  // LP Form State
+  const [lpName, setLPName] = useState("")
+  const [lpEmail, setLPEmail] = useState("")
+  const [lpPassword, setLPPassword] = useState("")
+  const [lpType, setLPType] = useState("")
+
+  // GP Form State
+  const [gpName, setGPName] = useState("")
+  const [gpEmail, setGPEmail] = useState("")
+  const [gpPassword, setGPPassword] = useState("")
+  const [gpFocus, setGPFocus] = useState("")
+
+  const validateEmail = (email: string) => {
+    return email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)
+  }
+
+  const validatePassword = (password: string) => {
+    return password.length >= 8
+  }
+
+  const createLPAccount = async () => {
     try {
+      setIsLoading(true)
+
+      // Validate fields
+      if (!lpName || !lpEmail || !lpPassword || !lpType) {
+        toast.error("Please fill in all fields")
+        return
+      }
+
+      if (!validateEmail(lpEmail)) {
+        toast.error("Please enter a valid email address")
+        return
+      }
+
+      if (!validatePassword(lpPassword)) {
+        toast.error("Password must be at least 8 characters long")
+        return
+      }
+
       // First create the user account
-      const user = await signup(startupEmail, startupPassword)
+      const user = await signup(lpEmail, lpPassword)
+      if (!user) {
+        toast.error("Failed to create user account")
+        return
+      }
       
-      // Create startup using the startup service
-      const startupService = new StartupService()
-      await startupService.createStartup({
-        name: startupName,
-        industry: startupIndustry,
+      // Create LP using the LP service
+      const lpService = new LPService()
+      await lpService.createLP({
+        name: lpName,
+        email: lpEmail,
+        type: lpType,
         userId: user.uid,
       })
 
-      // Optionally navigate to dashboard or show success message
-      // router.push('/dashboard')
+      toast.success("LP account created successfully!")
+      router.push("/dashboard/lp")
     } catch (error) {
       console.error("Signup failed:", error)
+      toast.error("Failed to create LP account")
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const createGPAccount = async () => {
+    try {
+      setIsLoading(true)
+
+      // Validate fields
+      if (!gpName || !gpEmail || !gpPassword || !gpFocus) {
+        toast.error("Please fill in all fields")
+        return
+      }
+
+      if (!validateEmail(gpEmail)) {
+        toast.error("Please enter a valid email address")
+        return
+      }
+
+      if (!validatePassword(gpPassword)) {
+        toast.error("Password must be at least 8 characters long")
+        return
+      }
+
+      // First create the user account
+      const user = await signup(gpEmail, gpPassword)
+      if (!user) {
+        toast.error("Failed to create user account")
+        return
+      }
+      
+      // Create GP using the GP service
+      const gpService = new GPService()
+      await gpService.createGP({
+        name: gpName,
+        email: gpEmail,
+        focus: gpFocus,
+        userId: user.uid,
+      })
+
+      toast.success("Fund Manager account created successfully!")
+      router.push("/dashboard/gp")
+    } catch (error) {
+      console.error("Signup failed:", error)
+      toast.error("Failed to create Fund Manager account")
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -72,7 +162,7 @@ export default function SignupPage() {
         <div className="container grid gap-6 px-4 md:px-6 lg:grid-cols-2 lg:gap-10">
           <div className="space-y-6">
             <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Join VentureToken</h1>
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Join Kapital</h1>
               <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Create your account to access digital-first VC fund investing with tokenized positions and USDC
                 settlement.
@@ -133,23 +223,55 @@ export default function SignupPage() {
                   <CardContent className="space-y-4">
                     <div className="space-y-2">
                       <Label htmlFor="lp-name">Full Name / Entity Name</Label>
-                      <Input id="lp-name" placeholder="Enter your name or entity name" />
+                      <Input 
+                        id="lp-name" 
+                        placeholder="Enter your name or entity name"
+                        value={lpName}
+                        onChange={(e) => setLPName(e.target.value)}
+                        disabled={isLoading}
+                      />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="lp-email">Email</Label>
-                      <Input id="lp-email" type="email" placeholder="Enter your email" />
+                      <Input 
+                        id="lp-email" 
+                        type="email" 
+                        placeholder="Enter your email"
+                        value={lpEmail}
+                        onChange={(e) => setLPEmail(e.target.value)}
+                        disabled={isLoading}
+                      />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="lp-password">Password</Label>
-                      <Input id="lp-password" type="password" placeholder="Create a password" />
+                      <Input 
+                        id="lp-password" 
+                        type="password" 
+                        placeholder="Create a password"
+                        value={lpPassword}
+                        onChange={(e) => setLPPassword(e.target.value)}
+                        disabled={isLoading}
+                      />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="lp-type">Investor Type</Label>
-                      <Input id="lp-type" placeholder="e.g., Individual, Family Office, DAO" />
+                      <Input 
+                        id="lp-type" 
+                        placeholder="e.g., Individual, Family Office, DAO"
+                        value={lpType}
+                        onChange={(e) => setLPType(e.target.value)}
+                        disabled={isLoading}
+                      />
                     </div>
                   </CardContent>
                   <CardFooter className="flex flex-col space-y-2">
-                    <Button className="w-full">Create LP Account</Button>
+                    <Button 
+                      className="w-full" 
+                      onClick={createLPAccount}
+                      disabled={isLoading}
+                    >
+                      {isLoading ? "Creating Account..." : "Create LP Account"}
+                    </Button>
                     <div className="text-center text-sm text-muted-foreground">
                       Already have an account?{" "}
                       <Link href="/login" className="text-primary underline-offset-4 hover:underline">
@@ -170,23 +292,55 @@ export default function SignupPage() {
                   <CardContent className="space-y-4">
                     <div className="space-y-2">
                       <Label htmlFor="gp-name">Fund / Firm Name</Label>
-                      <Input id="gp-name" placeholder="Enter your fund or firm name" />
+                      <Input 
+                        id="gp-name" 
+                        placeholder="Enter your fund or firm name"
+                        value={gpName}
+                        onChange={(e) => setGPName(e.target.value)}
+                        disabled={isLoading}
+                      />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="gp-email">Email</Label>
-                      <Input id="gp-email" type="email" placeholder="Enter your email" />
+                      <Input 
+                        id="gp-email" 
+                        type="email" 
+                        placeholder="Enter your email"
+                        value={gpEmail}
+                        onChange={(e) => setGPEmail(e.target.value)}
+                        disabled={isLoading}
+                      />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="gp-password">Password</Label>
-                      <Input id="gp-password" type="password" placeholder="Create a password" />
+                      <Input 
+                        id="gp-password" 
+                        type="password" 
+                        placeholder="Create a password"
+                        value={gpPassword}
+                        onChange={(e) => setGPPassword(e.target.value)}
+                        disabled={isLoading}
+                      />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="gp-focus">Investment Focus</Label>
-                      <Input id="gp-focus" placeholder="e.g., Early-stage Web3, Climate Tech" />
+                      <Input 
+                        id="gp-focus" 
+                        placeholder="e.g., Early-stage Web3, Climate Tech"
+                        value={gpFocus}
+                        onChange={(e) => setGPFocus(e.target.value)}
+                        disabled={isLoading}
+                      />
                     </div>
                   </CardContent>
                   <CardFooter className="flex flex-col space-y-2">
-                    <Button className="w-full">Create Fund Manager Account</Button>
+                    <Button 
+                      className="w-full"
+                      onClick={createGPAccount}
+                      disabled={isLoading}
+                    >
+                      {isLoading ? "Creating Account..." : "Create Fund Manager Account"}
+                    </Button>
                     <div className="text-center text-sm text-muted-foreground">
                       Already have an account?{" "}
                       <Link href="/login" className="text-primary underline-offset-4 hover:underline">
