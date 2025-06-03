@@ -35,22 +35,28 @@ const performanceData = [
 
 export function PerformanceCharts() {
   return (
-    <Card className="border border-gray-100 shadow-none">
-      <CardHeader className="pb-4 border-b border-gray-50">
-        <CardTitle className="text-lg font-medium text-gray-900">Holdings</CardTitle>
+    <Card className="border-0 shadow-none">
+      <CardHeader className="pb-4 border-b border-border/20">
+        <CardTitle className="text-lg font-medium text-foreground">Holdings</CardTitle>
       </CardHeader>
       <CardContent className="p-0">
-        <div className="divide-y divide-gray-50">
+        <div className="divide-y divide-border/10">
           {performanceData.map((fund) => (
-            <div key={fund.name} className="p-4 hover:bg-gray-50 transition-colors">
+            <div key={fund.name} className="p-4 hover:bg-accent/50 transition-colors">
               <div className="flex items-center justify-between">
                 <div className="flex-1">
-                  <p className="font-medium text-gray-900">{fund.name}</p>
-                  <p className="text-sm text-gray-500 mt-1">{fund.value}</p>
+                  <p className="font-medium text-foreground">{fund.name}</p>
+                  <p className="text-sm text-muted-foreground mt-1">{fund.value}</p>
                 </div>
                 <div className="text-right">
-                  <p className={`font-medium ${fund.isPositive ? "text-green-600" : "text-red-600"}`}>{fund.return}</p>
-                  <p className={`text-sm ${fund.isPositive ? "text-green-600" : "text-red-600"}`}>
+                  <p
+                    className={`font-medium ${fund.isPositive ? "text-[rgb(var(--positive))]" : "text-[rgb(var(--negative))]"}`}
+                  >
+                    {fund.return}
+                  </p>
+                  <p
+                    className={`text-sm ${fund.isPositive ? "text-[rgb(var(--positive))]" : "text-[rgb(var(--negative))]"}`}
+                  >
                     {fund.returnAmount}
                   </p>
                 </div>

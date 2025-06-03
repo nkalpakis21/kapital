@@ -15,7 +15,7 @@ export default function Dashboard() {
       <AppSidebar />
       <SidebarInset>
         <DashboardHeader />
-        <div className="flex flex-1 flex-col gap-6 p-6 bg-gray-50">
+        <div className="flex flex-1 flex-col gap-6 p-6 bg-background">
           <FundOverview />
           <div className="grid gap-6 lg:grid-cols-3">
             <div className="lg:col-span-2 space-y-6">

@@ -8,7 +8,7 @@ import { ModeToggle } from "@/components/mode-toggle"
 
 export function DashboardHeader() {
   return (
-    <header className="flex h-16 shrink-0 items-center gap-4 px-6 bg-background border-b border-border">
+    <header className="flex h-16 shrink-0 items-center gap-4 px-6 bg-card border-b border-border/20">
       <SidebarTrigger className="-ml-1" />
       <div className="flex flex-1 items-center justify-between">
         <div>
@@ -20,7 +20,7 @@ export function DashboardHeader() {
             <Input
               type="search"
               placeholder="Search funds, transactions..."
-              className="w-[300px] pl-10 border-input focus:border-ring focus:ring-ring"
+              className="w-[300px] pl-10 bg-accent border-border/20 focus:border-ring focus:ring-ring"
             />
           </div>
           <ModeToggle />

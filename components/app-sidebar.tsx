@@ -62,10 +62,10 @@ const navigationItems = [
 
 export function AppSidebar() {
   return (
-    <Sidebar className="border-r border-sidebar-border bg-sidebar">
-      <SidebarHeader className="p-6 border-b border-sidebar-border/50">
+    <Sidebar className="border-r border-sidebar-border/10 bg-sidebar">
+      <SidebarHeader className="p-6 border-b border-sidebar-border/10">
         <div className="flex items-center gap-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
             <span className="text-sm font-bold">K</span>
           </div>
           <div>
@@ -95,11 +95,11 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter className="p-4 border-t border-sidebar-border/50">
+      <SidebarFooter className="p-4 border-t border-sidebar-border/10">
         <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-sidebar-accent transition-colors">
           <Avatar className="h-10 w-10">
             <AvatarImage src="/placeholder.svg?height=40&width=40" />
-            <AvatarFallback className="bg-muted text-muted-foreground font-medium">JD</AvatarFallback>
+            <AvatarFallback className="bg-sidebar-accent text-sidebar-foreground font-medium">JD</AvatarFallback>
           </Avatar>
           <div className="flex-1 min-w-0">
             <p className="text-sm font-medium text-sidebar-foreground truncate">John Doe</p>

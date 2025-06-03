@@ -39,22 +39,24 @@ const recentActivities = [
 
 export function RecentActivity() {
   return (
-    <Card className="border border-gray-100 shadow-none">
-      <CardHeader className="pb-4 border-b border-gray-50">
-        <CardTitle className="text-lg font-medium text-gray-900">Recent Activity</CardTitle>
+    <Card className="border-0 shadow-none">
+      <CardHeader className="pb-4 border-b border-border/20">
+        <CardTitle className="text-lg font-medium text-foreground">Recent Activity</CardTitle>
       </CardHeader>
       <CardContent className="p-0">
-        <div className="divide-y divide-gray-50">
+        <div className="divide-y divide-border/10">
           {recentActivities.map((activity) => (
-            <div key={activity.id} className="p-4 hover:bg-gray-50 transition-colors">
+            <div key={activity.id} className="p-4 hover:bg-accent/50 transition-colors">
               <div className="flex items-center justify-between">
                 <div className="flex-1">
-                  <p className="font-medium text-gray-900">{activity.type}</p>
-                  <p className="text-sm text-gray-500 mt-1">{activity.fund}</p>
-                  <p className="text-xs text-gray-400 mt-1">{activity.date}</p>
+                  <p className="font-medium text-foreground">{activity.type}</p>
+                  <p className="text-sm text-muted-foreground mt-1">{activity.fund}</p>
+                  <p className="text-xs text-muted-foreground/70 mt-1">{activity.date}</p>
                 </div>
                 <div className="text-right">
-                  <p className={`font-medium ${activity.isPositive ? "text-green-600" : "text-gray-900"}`}>
+                  <p
+                    className={`font-medium ${activity.isPositive ? "text-[rgb(var(--positive))]" : "text-foreground"}`}
+                  >
                     {activity.amount}
                   </p>
                 </div>
