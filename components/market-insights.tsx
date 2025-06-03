@@ -1,7 +1,6 @@
 "use client"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { TrendingUp, Zap, Globe } from "lucide-react"
 
 const insights = [
@@ -11,15 +10,13 @@ const insights = [
     trend: "+23%",
     icon: TrendingUp,
     color: "text-emerald-600",
-    bgColor: "bg-emerald-50",
   },
   {
     title: "Hot Sector",
     description: "AI infrastructure funds oversubscribed",
     trend: "Hot",
     icon: Zap,
-    color: "text-orange-600",
-    bgColor: "bg-orange-50",
+    color: "text-blue-600",
   },
   {
     title: "Global Trend",
@@ -27,30 +24,29 @@ const insights = [
     trend: "Rising",
     icon: Globe,
     color: "text-blue-600",
-    bgColor: "bg-blue-50",
   },
 ]
 
 export function MarketInsights() {
   return (
-    <Card className="shadow-lg shadow-black/5 bg-white/80 backdrop-blur-sm">
+    <Card className="shadow-sm bg-white">
       <CardHeader className="pb-4">
-        <CardTitle className="text-xl font-bold">Market Insights</CardTitle>
+        <CardTitle className="text-lg font-medium">Market Insights</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="space-y-4">
+        <div className="space-y-3">
           {insights.map((insight, index) => (
-            <div key={index} className="p-4 rounded-xl bg-gradient-to-r from-slate-50 to-blue-50/30">
+            <div key={index} className="p-3 rounded-md bg-slate-50">
               <div className="flex items-start gap-3">
-                <div className={`p-2 rounded-lg ${insight.bgColor}`}>
-                  <insight.icon className={`h-4 w-4 ${insight.color}`} />
+                <div className="p-1.5 rounded-md bg-white">
+                  <insight.icon className={`h-3.5 w-3.5 ${insight.color}`} />
                 </div>
                 <div className="flex-1 space-y-1">
                   <div className="flex items-center justify-between">
-                    <p className="font-semibold text-sm">{insight.title}</p>
-                    <Badge className={`text-xs h-5 ${insight.bgColor} ${insight.color}`}>{insight.trend}</Badge>
+                    <p className="font-medium text-sm">{insight.title}</p>
+                    <p className={`text-xs font-medium ${insight.color}`}>{insight.trend}</p>
                   </div>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{insight.description}</p>
+                  <p className="text-xs text-muted-foreground">{insight.description}</p>
                 </div>
               </div>
             </div>

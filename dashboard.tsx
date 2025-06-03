@@ -15,7 +15,7 @@ export default function Dashboard() {
       <AppSidebar />
       <SidebarInset>
         <DashboardHeader />
-        <div className="flex flex-1 flex-col gap-8 p-8 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/20">
+        <div className="flex flex-1 flex-col gap-8 p-8 bg-white">
           <FundOverview />
           <div className="grid gap-8 lg:grid-cols-3">
             <div className="lg:col-span-2 space-y-8">
