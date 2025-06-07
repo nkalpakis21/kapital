@@ -26,7 +26,7 @@ const portfolioData = [
   },
 ]
 
-export function LPFundOverview() {
+export function FundOverview() {
   return (
     <div className="space-y-6">
       <div>
