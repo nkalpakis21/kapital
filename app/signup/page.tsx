@@ -29,7 +29,6 @@ export default function SignupPage() {
   const [activeTab, setActiveTab] = useState(defaultType)
   const { signup } = useAuth()
   const [isLoading, setIsLoading] = useState(false)
-
   // LP Form State
   const [lpName, setLPName] = useState("")
   const [lpEmail, setLPEmail] = useState("")
