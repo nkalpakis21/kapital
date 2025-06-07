@@ -14,14 +14,25 @@ import {
 import { SidebarTrigger } from "@/components/ui/sidebar"
 import { Bell, Coins, LogOut, Settings, User } from "lucide-react"
 import type { GP } from "@/lib/services/gpService"
-import { useAuth } from "@/contexts/AuthContext"
+import { signOut } from "firebase/auth"
+import { auth } from "@/lib/firebaseConfig"
+import { useRouter } from "next/navigation"
 
 interface GPDashboardHeaderProps {
   userData: GP
 }
 
 export function GPDashboardHeader({ userData }: GPDashboardHeaderProps) {
-  const { logout } = useAuth()
+  const router = useRouter()
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth)
+      router.push("/")
+    } catch (error) {
+      console.error("Error signing out:", error)
+    }
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -58,7 +69,7 @@ export function GPDashboardHeader({ userData }: GPDashboardHeaderProps) {
                 <span>Settings</span>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={() => logout()}>
+              <DropdownMenuItem onClick={handleLogout}>
                 <LogOut className="mr-2 h-4 w-4" />
                 <span>Log out</span>
               </DropdownMenuItem>

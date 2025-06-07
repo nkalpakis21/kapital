@@ -2,33 +2,36 @@
 
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
-import { useAuth } from "@/contexts/AuthContext"
 import { LPService } from "@/lib/services/lpService"
 import { GPService } from "@/lib/services/gpService"
+import { LPDashboard } from "@/components/dashboard/lp/lp-dashboard"
+import { GPDashboard } from "@/components/dashboard/gp/gp-dashboard"
 import { DashboardSkeleton } from "@/components/dashboard/dashboard-skeleton"
-import { DashboardContent } from "@/components/dashboard/dashboard-content"
+import { auth } from "@/lib/firebaseConfig"
+import { onAuthStateChanged, type User } from "firebase/auth"
 
 type UserType = "lp" | "gp" | null
 
 export default function DashboardPage() {
   const router = useRouter()
-  const { currentUser } = useAuth()
+  const [currentUser, setCurrentUser] = useState<User | null>(null)
   const [userType, setUserType] = useState<UserType>(null)
+  const [loading, setLoading] = useState(true)
   const [userData, setUserData] = useState<any>(null)
-  const [authLoading, setAuthLoading] = useState(false)
 
   useEffect(() => {
-    // Simple check for authentication without useAuth hook initially
-    if (!currentUser) {
-      router.push("/login")
-      return
-    }
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (!user) {
+        router.push("/login")
+        return
+      }
 
-    async function determineUserType() {
+      setCurrentUser(user)
+
       try {
         // Check if user is an LP
         const lpService = new LPService()
-        const lpData = await lpService.getLPByUserId(currentUser.uid)
+        const lpData = await lpService.getLPByUserId(user.uid)
 
         if (lpData) {
           setUserType("lp")
@@ -39,7 +42,7 @@ export default function DashboardPage() {
 
         // Check if user is a GP
         const gpService = new GPService()
-        const gpData = await gpService.getGPByUserId(currentUser.uid)
+        const gpData = await gpService.getGPByUserId(user.uid)
 
         if (gpData) {
           setUserType("gp")
@@ -54,16 +57,22 @@ export default function DashboardPage() {
         console.error("Error determining user type:", error)
         router.push("/signup")
       }
-    }
+    })
 
-    determineUserType()
-  }, [currentUser, router])
+    return () => unsubscribe()
+  }, [router])
 
-  const [loading, setLoading] = useState(true)
-
-  if (authLoading || loading) {
+  if (loading) {
     return <DashboardSkeleton />
   }
 
-  return <DashboardContent userType={userType} userData={userData} />
+  if (userType === "lp") {
+    return <LPDashboard userData={userData} />
+  }
+
+  if (userType === "gp") {
+    return <GPDashboard userData={userData} />
+  }
+
+  return null
 }
