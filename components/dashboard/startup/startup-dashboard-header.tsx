@@ -22,7 +22,7 @@ export function StartupDashboardHeader() {
           <SidebarTrigger />
           <Link href="/dashboard/startup" className="flex items-center gap-2">
             <Coins className="h-6 w-6 text-primary" />
-            <span className="text-xl font-bold">VentureToken</span>
+            <span className="text-xl font-bold">Kapital</span>
           </Link>
         </div>
         <div className="flex items-center gap-2">
