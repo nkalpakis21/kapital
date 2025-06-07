@@ -5,26 +5,26 @@ import { useRouter } from "next/navigation"
 import { useAuth } from "@/contexts/AuthContext"
 import { LPService } from "@/lib/services/lpService"
 import { GPService } from "@/lib/services/gpService"
+import { LPDashboard } from "@/components/dashboard/lp/lp-dashboard"
+import { GPDashboard } from "@/components/dashboard/gp/gp-dashboard"
 import { DashboardSkeleton } from "@/components/dashboard/dashboard-skeleton"
-import { DashboardContent } from "@/components/dashboard/dashboard-content"
 
 type UserType = "lp" | "gp" | null
 
-export default function DashboardPage() {
-  const router = useRouter()
+export function DashboardContent() {
   const { currentUser } = useAuth()
+  const router = useRouter()
   const [userType, setUserType] = useState<UserType>(null)
+  const [loading, setLoading] = useState(true)
   const [userData, setUserData] = useState<any>(null)
-  const [authLoading, setAuthLoading] = useState(false)
 
   useEffect(() => {
-    // Simple check for authentication without useAuth hook initially
-    if (!currentUser) {
-      router.push("/login")
-      return
-    }
-
     async function determineUserType() {
+      if (!currentUser) {
+        router.push("/login")
+        return
+      }
+
       try {
         // Check if user is an LP
         const lpService = new LPService()
@@ -59,11 +59,17 @@ export default function DashboardPage() {
     determineUserType()
   }, [currentUser, router])
 
-  const [loading, setLoading] = useState(true)
-
-  if (authLoading || loading) {
+  if (loading) {
     return <DashboardSkeleton />
   }
 
-  return <DashboardContent userType={userType} userData={userData} />
+  if (userType === "lp") {
+    return <LPDashboard userData={userData} />
+  }
+
+  if (userType === "gp") {
+    return <GPDashboard userData={userData} />
+  }
+
+  return null
 }
