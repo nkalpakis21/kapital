@@ -1,3 +1,4 @@
+'use client';
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -5,11 +6,15 @@ import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Progress } from "@/components/ui/progress"
 import { ArrowLeft, Building2, Calendar, DollarSign, FileText, Globe, MapPin, Users } from "lucide-react"
+import React from "react"
+import { useParams } from "next/navigation";
 
-export default function StartupDetailPage({ params }: { params: { id: string } }) {
+export default function FundDetailPage() {
+  const params = useParams();
+  const { id } = params;
   // This would normally fetch data based on the ID
   const startup = {
-    id: params.id,
+    id,
     name: "BlockFin Technologies",
     logo: "BT",
     description:

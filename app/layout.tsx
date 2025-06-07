@@ -3,13 +3,16 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { AuthProvider } from "@/contexts/AuthContext"
+import { ThemeProvider } from "@/components/theme-provider"
+import { Toaster } from "@/components/ui/sonner"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "VentureToken | Connecting Startups and VCs with Token-Based Funding",
+  title: "Kapital | Connecting LPs and Fund Managers with Digital-First Investing",
   description:
-    "A modern platform for startups and VCs to connect through crypto-based token funding with secondary market liquidity.",
+    "A modern platform for LPs and fund managers to connect through digital-first VC fund investing with tokenized positions and USDC settlement.",
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -19,11 +22,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-        <body className={inter.className}>
+      <body className={inter.className}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <AuthProvider>
             {children}
+            <Toaster />
           </AuthProvider>
-          </body>
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

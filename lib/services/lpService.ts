@@ -1,4 +1,4 @@
-import { FirestoreService } from '../firebase/firestore'
+import { LPRepository } from '../repositories/lpRepository'
 
 export interface LP {
   id?: string
@@ -15,46 +15,24 @@ export interface LP {
 }
 
 export class LPService {
-  private firestore: FirestoreService
-  private collectionName = 'lps'
+  private repository: LPRepository
 
   constructor() {
-    this.firestore = FirestoreService.getInstance()
+    this.repository = new LPRepository()
   }
 
   async createLP(data: Omit<LP, 'id' | 'createdAt' | 'updatedAt'>): Promise<string> {
-    try {
-      const lpId = await this.firestore.create<LP>(
-        this.collectionName,
-        data
-      )
-      return lpId
-    } catch (error) {
-      console.error('Error creating LP:', error)
-      throw new Error('Failed to create LP')
-    }
+    console.info('[LPService] Calling createLP with:', data)
+    return await this.repository.create(data)
   }
 
   async getLPById(id: string): Promise<LP | null> {
-    try {
-      return await this.firestore.getById<LP>(this.collectionName, id)
-    } catch (error) {
-      console.error('Error fetching LP:', error)
-      throw new Error('Failed to fetch LP')
-    }
+    console.info('[LPService] Calling getLPById with:', id)
+    return await this.repository.getById(id)
   }
 
   async getLPByUserId(userId: string): Promise<LP | null> {
-    try {
-      const lps = await this.firestore.getByField<LP>(
-        this.collectionName,
-        'userId',
-        userId
-      )
-      return lps[0] || null
-    } catch (error) {
-      console.error('Error fetching LP by user ID:', error)
-      throw new Error('Failed to fetch LP')
-    }
+    console.info('[LPService] Calling getLPByUserId with:', userId)
+    return await this.repository.getByUserId(userId)
   }
-} 
+}

@@ -15,7 +15,7 @@ export function LandingTestimonials() {
               Trusted by Modern LPs and Innovative Fund Managers
             </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Hear from the LPs and GPs who are transforming fund investing with VentureToken
+              Hear from the LPs and GPs who are transforming fund investing with Kapital
             </p>
           </div>
         </div>
@@ -25,8 +25,8 @@ export function LandingTestimonials() {
               <div className="flex flex-col gap-4">
                 <Quote className="h-8 w-8 text-primary/50" />
                 <p className="text-lg">
-                  "VentureToken transformed our fund investing process. The USDC-denominated positions and tokenized
-                  structure gave us the flexibility and transparency we needed as a DAO treasury."
+                &quot;Kapital transformed our fund investing process. The USDC-denominated positions and tokenized
+                  structure gave us the flexibility and transparency we needed as a DAO treasury.&quot;
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="h-12 w-12 overflow-hidden rounded-full bg-muted">
@@ -51,8 +51,8 @@ export function LandingTestimonials() {
               <div className="flex flex-col gap-4">
                 <Quote className="h-8 w-8 text-primary/50" />
                 <p className="text-lg">
-                  "As a fund manager, the platform's tokenization infrastructure allowed us to access a global LP base
-                  we never could have reached through traditional channels. The secondary liquidity is a game-changer."
+                &quot;As a fund manager, the platform&apos;s tokenization infrastructure allowed us to access a global LP base
+                  we never could have reached through traditional channels. The secondary liquidity is a game-changer.&quot;
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="h-12 w-12 overflow-hidden rounded-full bg-muted">
@@ -77,8 +77,8 @@ export function LandingTestimonials() {
               <div className="flex flex-col gap-4">
                 <Quote className="h-8 w-8 text-primary/50" />
                 <p className="text-lg">
-                  "The real-time performance tracking and smart contract vesting created unprecedented transparency in
-                  our fund investments. We can finally see exactly where our capital is deployed."
+                &quot;The real-time performance tracking and smart contract vesting created unprecedented transparency in
+                  our fund investments. We can finally see exactly where our capital is deployed.&quot;
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="h-12 w-12 overflow-hidden rounded-full bg-muted">
@@ -103,8 +103,8 @@ export function LandingTestimonials() {
               <div className="flex flex-col gap-4">
                 <Quote className="h-8 w-8 text-primary/50" />
                 <p className="text-lg">
-                  "VentureToken's platform helped us discover early-stage Web3 funds that perfectly matched our
-                  investment thesis. The lower minimums and digital onboarding made participation seamless."
+                &quot;Kapital&apos;s platform helped us discover early-stage Web3 funds that perfectly matched our
+                  investment thesis. The lower minimums and digital onboarding made participation seamless.&quot;
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="h-12 w-12 overflow-hidden rounded-full bg-muted">

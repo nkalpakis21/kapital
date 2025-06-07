@@ -55,13 +55,13 @@ export class FirestoreService {
       return null
     }
     
-    return { id: docSnap.id, ...docSnap.data() } as T
+    return { id: docSnap.id, ...docSnap.data() } as unknown as T
   }
 
   async getByField<T extends DocumentData>(
     collectionName: string,
     field: string,
-    value: any
+    value: unknown,
   ): Promise<T[]> {
     const q = query(
       collection(this.db, collectionName),
@@ -72,6 +72,6 @@ export class FirestoreService {
     return querySnapshot.docs.map(doc => ({
       id: doc.id,
       ...doc.data()
-    })) as T[]
+    })) as unknown as T[]
   }
-} 
+}

@@ -1,10 +1,10 @@
 import { LandingHeader } from "@/components/landing/landing-header"
-import { LandingHero } from "@/components/landing/landing-hero"
+import { LandingFooter } from "@/components/landing/landing-footer"
+import { LandingCta } from "@/components/landing/landing-cta"
 import { LandingFeatures } from "@/components/landing/landing-features"
+import { LandingHero } from "@/components/landing/landing-hero"
 import { LandingHowItWorks } from "@/components/landing/landing-how-it-works"
 import { LandingTestimonials } from "@/components/landing/landing-testimonials"
-import { LandingCta } from "@/components/landing/landing-cta"
-import { LandingFooter } from "@/components/landing/landing-footer"
 
 export default function Home() {
   return (
