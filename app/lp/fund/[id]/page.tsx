@@ -6,10 +6,21 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Progress } from "@/components/ui/progress"
 import { ArrowLeft, Building2, Calendar, DollarSign, FileText, Globe, MapPin, Users } from "lucide-react"
 
-export default function StartupDetailPage({ params }: { params: { id: string } }) {
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
+
+export default async function StartupDetailPage({
+  params,
+}: {
+  params: Promise<{ id: string }>
+}) {
+  const { id } = await params
   // This would normally fetch data based on the ID
   const startup = {
-    id: params.id,
+    id,
     name: "BlockFin Technologies",
     logo: "BT",
     description:
