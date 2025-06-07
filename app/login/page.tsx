@@ -96,7 +96,7 @@ export default function LoginPage() {
                 </div>
               </CardContent>
               <CardFooter className="flex flex-col space-y-4">
-                <Button className="w-full" type="submit" disabled={isLoading}>
+                <Button className="w-full bg-primary text-white hover:bg-primary/90" type="submit" disabled={isLoading} onClick={handleLogin}>
                   {isLoading ? "Logging in..." : "Log In"}
                 </Button>
                 {error && <div className="text-center text-sm text-red-600">{error}</div>}
