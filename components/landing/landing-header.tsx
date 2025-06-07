@@ -54,7 +54,7 @@ export function LandingHeader() {
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2">
             <Coins className="h-6 w-6 text-primary" />
-            <span className="text-xl font-bold">VentureToken</span>
+            <span className="text-xl font-bold">Kapital</span>
           </Link>
           <NavigationMenu className="hidden md:flex">
             <NavigationMenuList>
@@ -149,7 +149,7 @@ export function LandingHeader() {
             </SheetTrigger>
             <SheetContent side="right">
               <SheetHeader>
-                <SheetTitle>VentureToken</SheetTitle>
+                <SheetTitle>Kapital</SheetTitle>
                 <SheetDescription>Connecting LPs and fund managers with digital-first investing</SheetDescription>
               </SheetHeader>
               <div className="grid gap-4 py-4">
