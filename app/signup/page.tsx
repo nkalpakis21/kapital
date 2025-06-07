@@ -27,7 +27,7 @@ export default function SignupPage() {
   const searchParams = useSearchParams()
   const defaultType = searchParams.get("type") || "lp"
   const [activeTab, setActiveTab] = useState(defaultType)
-  const { signup, currentUser } = useAuth()
+  const { signup } = useAuth()
   const [isLoading, setIsLoading] = useState(false)
   // LP Form State
   const [lpName, setLPName] = useState("")

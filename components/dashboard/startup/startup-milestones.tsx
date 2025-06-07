@@ -45,7 +45,7 @@ export function StartupMilestones() {
     <Card>
       <CardHeader>
         <CardTitle>Milestones</CardTitle>
-        <CardDescription>Track your startup's progress and achievements</CardDescription>
+        <CardDescription>Track your startup&apos;s progress and achievements</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
