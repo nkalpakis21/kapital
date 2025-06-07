@@ -2,13 +2,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { CheckCircle, Circle, Clock } from "lucide-react"
 
-export function GPMilestones() {
+export function StartupMilestones() {
   const milestones = [
     { title: "Fund I Closed", status: "completed", date: "Jan 2024" },
     { title: "First Investment", status: "completed", date: "Feb 2024" },
-    { title: "50% of Fund I Deployed", status: "in-progress", date: "Mar 2024" },
+    { title: "50% of Fund Deployed", status: "in-progress", date: "Mar 2024" },
     { title: "Fund II Launch", status: "pending", date: "Apr 2024" },
-    { title: "Final Investment - Fund I", status: "pending", date: "Jun 2024" },
+    { title: "Final Investment", status: "pending", date: "Jun 2024" },
   ]
 
   const getStatusIcon = (status: string) => {
@@ -44,7 +44,7 @@ export function GPMilestones() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Milestones</CardTitle>
+        <CardTitle>Fund Milestones</CardTitle>
         <CardDescription>Track your fund&apos;s progress and achievements</CardDescription>
       </CardHeader>
       <CardContent>

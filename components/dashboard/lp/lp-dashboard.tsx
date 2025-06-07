@@ -2,11 +2,11 @@
 
 import { LPDashboardHeader } from "./lp-dashboard-header"
 import { LPDashboardSidebar } from "./lp-dashboard-sidebar"
-import { LPFundOverview } from "./lp-fund-overview"
-import { LPPerformanceCharts } from "./lp-performance-charts"
-import { LPRecentActivity } from "./lp-recent-activity"
-import { LPFundMetrics } from "./lp-fund-metrics"
-import { LPMarketInsights } from "./lp-market-insights"
+import { FundOverview } from "@/components/fund-overview"
+import { PerformanceCharts } from "@/components/performance-charts"
+import { RecentActivity } from "@/components/recent-activity"
+import { FundMetrics } from "@/components/fund-metrics"
+import { MarketInsights } from "@/components/market-insights"
 import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar"
 import type { LP } from "@/lib/services/lpService"
 
@@ -24,15 +24,15 @@ export function LPDashboard({ userData }: LPDashboardProps) {
           <SidebarInset>
             <main className="flex-1 p-6">
               <div className="space-y-6">
-                <LPFundOverview />
+                <FundOverview />
                 <div className="grid gap-6 lg:grid-cols-3">
                   <div className="lg:col-span-2 space-y-6">
-                    <LPPerformanceCharts />
-                    <LPRecentActivity />
+                    <PerformanceCharts />
+                    <RecentActivity />
                   </div>
                   <div className="space-y-6">
-                    <LPFundMetrics />
-                    <LPMarketInsights />
+                    <FundMetrics />
+                    <MarketInsights />
                   </div>
                 </div>
               </div>

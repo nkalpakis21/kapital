@@ -2,28 +2,28 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 
-export function GPMessages() {
+export function StartupMessages() {
   const messages = [
     {
-      sender: "LP Alpha",
+      sender: "Alpha Family Office",
       message: "Interested in discussing terms for Fund II",
       time: "2h ago",
       unread: true,
-      avatar: "LA",
+      avatar: "AF",
     },
     {
-      sender: "LP Beta",
+      sender: "Beta DAO Treasury",
       message: "Great progress on your investments!",
       time: "1d ago",
       unread: false,
-      avatar: "LB",
+      avatar: "BD",
     },
     {
-      sender: "LP Gamma",
+      sender: "Gamma Ventures LP",
       message: "Can we schedule a call this week?",
       time: "2d ago",
       unread: true,
-      avatar: "LG",
+      avatar: "GV",
     },
   ]
 

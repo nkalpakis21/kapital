@@ -2,11 +2,11 @@
 
 import { GPDashboardHeader } from "./gp-dashboard-header"
 import { GPDashboardSidebar } from "./gp-dashboard-sidebar"
-import { GPFundingProgress } from "./gp-funding-progress"
-import { GPTokenMetrics } from "./gp-token-metrics"
-import { GPInvestorList } from "./gp-investor-list"
-import { GPMilestones } from "./gp-milestones"
-import { GPMessages } from "./gp-messages"
+import { StartupFundingProgress } from "@/components/dashboard/startup/startup-funding-progress"
+import { StartupTokenMetrics } from "@/components/dashboard/startup/startup-token-metrics"
+import { StartupInvestorList } from "@/components/dashboard/startup/startup-investor-list"
+import { StartupMilestones } from "@/components/dashboard/startup/startup-milestones"
+import { StartupMessages } from "@/components/dashboard/startup/startup-messages"
 import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar"
 import type { GP } from "@/lib/services/gpService"
 
@@ -26,13 +26,13 @@ export function GPDashboard({ userData }: GPDashboardProps) {
               <div className="grid gap-6">
                 <h1 className="text-3xl font-bold">Fund Manager Dashboard</h1>
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  <GPFundingProgress />
-                  <GPTokenMetrics />
-                  <GPInvestorList />
+                  <StartupFundingProgress />
+                  <StartupTokenMetrics />
+                  <StartupInvestorList />
                 </div>
                 <div className="grid gap-6 md:grid-cols-2">
-                  <GPMilestones />
-                  <GPMessages />
+                  <StartupMilestones />
+                  <StartupMessages />
                 </div>
               </div>
             </main>

@@ -2,12 +2,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Users } from "lucide-react"
 
-export function GPInvestorList() {
+export function StartupInvestorList() {
   const investors = [
-    { name: "Nexus Ventures", amount: "$200K", avatar: "NV" },
-    { name: "Crypto Capital", amount: "$150K", avatar: "CC" },
-    { name: "BlockChain Fund", amount: "$100K", avatar: "BF" },
-    { name: "Future Labs", amount: "$75K", avatar: "FL" },
+    { name: "Alpha Family Office", amount: "$200K", avatar: "AF" },
+    { name: "Beta DAO Treasury", amount: "$150K", avatar: "BD" },
+    { name: "Gamma Ventures LP", amount: "$100K", avatar: "GV" },
+    { name: "Delta Capital", amount: "$75K", avatar: "DC" },
   ]
 
   return (
