@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Coins } from "lucide-react"
+import { Building2 } from "lucide-react"
 
 export function LandingFooter() {
   return (
@@ -8,7 +8,7 @@ export function LandingFooter() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              <Coins className="h-6 w-6 text-blue-600" />
+              <Building2 className="h-6 w-6 text-gray-900" />
               <span className="text-xl font-semibold text-gray-900">Kapital</span>
             </Link>
             <p className="text-sm text-gray-600 leading-relaxed">

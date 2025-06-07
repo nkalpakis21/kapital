@@ -1,6 +1,6 @@
 "use client"
 
-import { BarChart3, Building2, DollarSign, FileText, Home, PieChart, Settings, TrendingUp, Coins } from "lucide-react"
+import { BarChart3, Building2, DollarSign, FileText, Home, PieChart, Settings, TrendingUp } from "lucide-react"
 
 import {
   Sidebar,
@@ -51,7 +51,7 @@ const navigationItems = [
   {
     title: "Market",
     url: "#",
-    icon: Coins,
+    icon: Building2,
   },
   {
     title: "Reports",
@@ -65,7 +65,7 @@ export function AppSidebar() {
     <Sidebar className="border-r border-border bg-background">
       <SidebarHeader className="p-6 border-b border-border">
         <div className="flex items-center gap-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-foreground text-background">
             <span className="text-sm font-bold">K</span>
           </div>
           <div>
@@ -82,7 +82,7 @@ export function AppSidebar() {
                   <SidebarMenuButton
                     asChild
                     isActive={item.isActive}
-                    className="h-12 rounded-lg transition-colors hover:bg-muted data-[active=true]:bg-blue-600 data-[active=true]:text-white data-[active=true]:font-medium"
+                    className="h-12 rounded-lg transition-colors hover:bg-muted data-[active=true]:bg-foreground data-[active=true]:text-background data-[active=true]:font-medium"
                   >
                     <a href={item.url} className="flex items-center gap-3 px-3">
                       <item.icon className="h-5 w-5" />

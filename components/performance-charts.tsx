@@ -49,10 +49,10 @@ export function PerformanceCharts() {
                   <p className="text-sm text-muted-foreground mt-1">{fund.value}</p>
                 </div>
                 <div className="text-right">
-                  <p className={`font-semibold ${fund.isPositive ? "text-green-600" : "text-red-600"}`}>
+                  <p className={`font-semibold ${fund.isPositive ? "text-foreground" : "text-muted-foreground"}`}>
                     {fund.return}
                   </p>
-                  <p className={`text-sm ${fund.isPositive ? "text-green-600" : "text-red-600"}`}>
+                  <p className={`text-sm ${fund.isPositive ? "text-foreground" : "text-muted-foreground"}`}>
                     {fund.returnAmount}
                   </p>
                 </div>

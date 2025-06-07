@@ -3,15 +3,15 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { ArrowLeft, Coins } from "lucide-react"
+import { ArrowLeft, Building2 } from "lucide-react"
 
 export default function LoginPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <div className="container flex h-16 items-center px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
-          <Coins className="h-6 w-6 text-primary" />
-          <span className="text-xl font-bold">VentureToken</span>
+          <Building2 className="h-6 w-6 text-foreground" />
+          <span className="text-xl font-bold">Kapital</span>
         </Link>
         <div className="ml-auto flex items-center gap-2">
           <Button variant="ghost" size="sm" asChild>
@@ -27,7 +27,7 @@ export default function LoginPage() {
           <div className="mx-auto max-w-md space-y-6">
             <div className="space-y-2 text-center">
               <h1 className="text-3xl font-bold">Welcome Back</h1>
-              <p className="text-muted-foreground">Log in to your VentureToken account</p>
+              <p className="text-muted-foreground">Log in to your Kapital account</p>
             </div>
             <Card>
               <CardHeader>
@@ -42,7 +42,7 @@ export default function LoginPage() {
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <Label htmlFor="password">Password</Label>
-                    <Link href="#" className="text-sm text-primary underline-offset-4 hover:underline">
+                    <Link href="#" className="text-sm text-foreground underline-offset-4 hover:underline">
                       Forgot password?
                     </Link>
                   </div>
@@ -53,7 +53,7 @@ export default function LoginPage() {
                 <Button className="w-full">Log In</Button>
                 <div className="text-center text-sm">
                   Don&apos;t have an account?{" "}
-                  <Link href="/signup" className="text-primary underline-offset-4 hover:underline">
+                  <Link href="/signup" className="text-foreground underline-offset-4 hover:underline">
                     Sign up
                   </Link>
                 </div>

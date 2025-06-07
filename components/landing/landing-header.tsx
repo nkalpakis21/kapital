@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/navigation-menu"
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { cn } from "@/lib/utils"
-import { Coins, Menu } from "lucide-react"
+import { Building2, Menu } from "lucide-react"
 
 export function LandingHeader() {
   return (
@@ -23,8 +23,8 @@ export function LandingHeader() {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2">
-            <Coins className="h-6 w-6 text-primary" />
-            <span className="text-xl font-bold">VentureToken</span>
+            <Building2 className="h-6 w-6 text-foreground" />
+            <span className="text-xl font-bold">Kapital</span>
           </Link>
           <NavigationMenu className="hidden md:flex">
             <NavigationMenuList>
@@ -111,7 +111,7 @@ export function LandingHeader() {
             </SheetTrigger>
             <SheetContent side="right">
               <SheetHeader>
-                <SheetTitle>VentureToken</SheetTitle>
+                <SheetTitle>Kapital</SheetTitle>
                 <SheetDescription>Connecting LPs and fund managers with digital-first investing</SheetDescription>
               </SheetHeader>
               <div className="grid gap-4 py-4">

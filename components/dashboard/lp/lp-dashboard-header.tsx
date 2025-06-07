@@ -12,7 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { SidebarTrigger } from "@/components/ui/sidebar"
-import { Bell, Coins, LogOut, Settings, User } from "lucide-react"
+import { Bell, Building2, LogOut, Settings, User } from "lucide-react"
 import type { LP } from "@/lib/services/lpService"
 import { signOut } from "firebase/auth"
 import { auth } from "@/lib/firebaseConfig"
@@ -40,7 +40,7 @@ export function LPDashboardHeader({ userData }: LPDashboardHeaderProps) {
         <div className="flex items-center gap-2">
           <SidebarTrigger />
           <Link href="/dashboard" className="flex items-center gap-2">
-            <Coins className="h-6 w-6 text-primary" />
+            <Building2 className="h-6 w-6 text-foreground" />
             <span className="text-xl font-bold">Kapital</span>
           </Link>
         </div>

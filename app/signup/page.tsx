@@ -9,7 +9,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ArrowLeft, Coins } from "lucide-react"
+import { ArrowLeft, Building2 } from "lucide-react"
 import { useAuth } from "@/contexts/AuthContext"
 import { LPService } from "@/lib/services/lpService"
 import { GPService } from "@/lib/services/gpService"
@@ -138,7 +138,7 @@ export default function SignupPage() {
     <div className="flex min-h-screen flex-col">
       <div className="container flex h-16 items-center px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
-          <Coins className="h-6 w-6 text-primary" />
+          <Building2 className="h-6 w-6 text-foreground" />
           <span className="text-xl font-bold">Kapital</span>
         </Link>
         <div className="ml-auto flex items-center gap-2">
@@ -162,8 +162,8 @@ export default function SignupPage() {
             </div>
             <div className="space-y-4">
               <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                  <span className="text-lg font-bold text-primary">1</span>
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-muted">
+                  <span className="text-lg font-bold text-foreground">1</span>
                 </div>
                 <div>
                   <h3 className="font-semibold">Create Your Profile</h3>
@@ -171,8 +171,8 @@ export default function SignupPage() {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                  <span className="text-lg font-bold text-primary">2</span>
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-muted">
+                  <span className="text-lg font-bold text-foreground">2</span>
                 </div>
                 <div>
                   <h3 className="font-semibold">Complete Onboarding</h3>
@@ -184,8 +184,8 @@ export default function SignupPage() {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                  <span className="text-lg font-bold text-primary">3</span>
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-muted">
+                  <span className="text-lg font-bold text-foreground">3</span>
                 </div>
                 <div>
                   <h3 className="font-semibold">Start Investing</h3>
@@ -262,7 +262,7 @@ export default function SignupPage() {
                     </Button>
                     <div className="text-center text-sm text-muted-foreground">
                       Already have an account?{" "}
-                      <Link href="/login" className="text-primary underline-offset-4 hover:underline">
+                      <Link href="/login" className="text-foreground underline-offset-4 hover:underline">
                         Log in
                       </Link>
                     </div>
@@ -327,7 +327,7 @@ export default function SignupPage() {
                     </Button>
                     <div className="text-center text-sm text-muted-foreground">
                       Already have an account?{" "}
-                      <Link href="/login" className="text-primary underline-offset-4 hover:underline">
+                      <Link href="/login" className="text-foreground underline-offset-4 hover:underline">
                         Log in
                       </Link>
                     </div>

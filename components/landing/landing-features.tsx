@@ -1,4 +1,4 @@
-import { BarChart3, Coins, FileText, LineChart, MessageSquare, ShieldCheck, Shuffle, Users } from "lucide-react"
+import { BarChart3, Building2, FileText, LineChart, MessageSquare, ShieldCheck, Shuffle, Users } from "lucide-react"
 
 export function LandingFeatures() {
   return (
@@ -6,7 +6,7 @@ export function LandingFeatures() {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <div className="inline-block rounded-lg bg-primary px-3 py-1 text-sm text-primary-foreground">Features</div>
+            <div className="inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background">Features</div>
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
               A Complete Platform for Digital VC Fund Investing
             </h2>
@@ -18,8 +18,8 @@ export function LandingFeatures() {
         <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-10">
           <div className="grid gap-6">
             <div className="flex gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                <Coins className="h-6 w-6 text-primary" />
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-muted">
+                <Building2 className="h-6 w-6 text-foreground" />
               </div>
               <div className="space-y-1">
                 <h3 className="text-xl font-bold">USDC-Denominated Investing</h3>
@@ -29,8 +29,8 @@ export function LandingFeatures() {
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                <FileText className="h-6 w-6 text-primary" />
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-muted">
+                <FileText className="h-6 w-6 text-foreground" />
               </div>
               <div className="space-y-1">
                 <h3 className="text-xl font-bold">Tokenized LP Positions</h3>
@@ -40,8 +40,8 @@ export function LandingFeatures() {
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                <Shuffle className="h-6 w-6 text-primary" />
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-muted">
+                <Shuffle className="h-6 w-6 text-foreground" />
               </div>
               <div className="space-y-1">
                 <h3 className="text-xl font-bold">Secondary Liquidity</h3>
@@ -51,8 +51,8 @@ export function LandingFeatures() {
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                <LineChart className="h-6 w-6 text-primary" />
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-muted">
+                <LineChart className="h-6 w-6 text-foreground" />
               </div>
               <div className="space-y-1">
                 <h3 className="text-xl font-bold">Real-Time Tracking</h3>
@@ -64,8 +64,8 @@ export function LandingFeatures() {
           </div>
           <div className="grid gap-6">
             <div className="flex gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                <Users className="h-6 w-6 text-primary" />
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-muted">
+                <Users className="h-6 w-6 text-foreground" />
               </div>
               <div className="space-y-1">
                 <h3 className="text-xl font-bold">Global Access</h3>
@@ -75,8 +75,8 @@ export function LandingFeatures() {
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                <ShieldCheck className="h-6 w-6 text-primary" />
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-muted">
+                <ShieldCheck className="h-6 w-6 text-foreground" />
               </div>
               <div className="space-y-1">
                 <h3 className="text-xl font-bold">Smart Contract Vesting</h3>
@@ -84,8 +84,8 @@ export function LandingFeatures() {
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                <BarChart3 className="h-6 w-6 text-primary" />
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-muted">
+                <BarChart3 className="h-6 w-6 text-foreground" />
               </div>
               <div className="space-y-1">
                 <h3 className="text-xl font-bold">Lower Minimums</h3>
@@ -93,8 +93,8 @@ export function LandingFeatures() {
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                <MessageSquare className="h-6 w-6 text-primary" />
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-muted">
+                <MessageSquare className="h-6 w-6 text-foreground" />
               </div>
               <div className="space-y-1">
                 <h3 className="text-xl font-bold">DAO Compatible</h3>

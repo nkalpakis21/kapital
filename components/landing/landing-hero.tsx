@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Coins, LineChart, Users } from "lucide-react"
+import { ArrowRight, Building2, LineChart, Users } from "lucide-react"
 
 export function LandingHero() {
   return (
@@ -30,18 +30,18 @@ export function LandingHero() {
             </div>
           </div>
           <div className="flex items-center justify-center">
-            <div className="relative h-[450px] w-full max-w-[450px] rounded-lg bg-gradient-to-br from-primary/20 via-muted to-background p-6">
-              <div className="absolute left-6 top-6 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
-                <Coins className="h-10 w-10 text-primary" />
+            <div className="relative h-[450px] w-full max-w-[450px] rounded-lg bg-gradient-to-br from-muted/20 via-muted to-background p-6">
+              <div className="absolute left-6 top-6 flex h-20 w-20 items-center justify-center rounded-full bg-muted">
+                <Building2 className="h-10 w-10 text-foreground" />
               </div>
-              <div className="absolute bottom-24 left-12 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-                <Users className="h-8 w-8 text-primary" />
+              <div className="absolute bottom-24 left-12 flex h-16 w-16 items-center justify-center rounded-full bg-muted">
+                <Users className="h-8 w-8 text-foreground" />
               </div>
-              <div className="absolute right-10 top-1/3 flex h-24 w-24 items-center justify-center rounded-full bg-primary/10">
-                <LineChart className="h-12 w-12 text-primary" />
+              <div className="absolute right-10 top-1/3 flex h-24 w-24 items-center justify-center rounded-full bg-muted">
+                <LineChart className="h-12 w-12 text-foreground" />
               </div>
               <div className="absolute bottom-12 right-12 h-32 w-64 rounded-lg bg-card p-4 shadow-lg">
-                <div className="mb-2 h-2 w-20 rounded-full bg-primary/20"></div>
+                <div className="mb-2 h-2 w-20 rounded-full bg-muted"></div>
                 <div className="space-y-2">
                   <div className="h-2 w-full rounded-full bg-muted"></div>
                   <div className="h-2 w-4/5 rounded-full bg-muted"></div>

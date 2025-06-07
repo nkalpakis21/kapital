@@ -7,9 +7,7 @@ export function LandingHowItWorks() {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <div className="inline-block rounded-lg bg-primary px-3 py-1 text-sm text-primary-foreground">
-              How It Works
-            </div>
+            <div className="inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background">How It Works</div>
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Transforming VC Fund Investing</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               Our platform connects LPs and GPs through a streamlined tokenized fund process
@@ -18,29 +16,29 @@ export function LandingHowItWorks() {
         </div>
         <div className="mx-auto grid max-w-5xl gap-6 py-12 lg:grid-cols-3">
           <div className="flex flex-col items-center space-y-4 rounded-lg border p-6 shadow-sm">
-            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-              <span className="text-2xl font-bold text-primary">1</span>
+            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-muted">
+              <span className="text-2xl font-bold text-foreground">1</span>
             </div>
             <h3 className="text-xl font-bold">Create Your Profile</h3>
             <p className="text-center text-muted-foreground">
               LPs set investment criteria and connect wallets, while GPs create fund profiles and tokenization
               parameters
             </p>
-            <ArrowRight className="h-6 w-6 text-primary lg:rotate-90" />
+            <ArrowRight className="h-6 w-6 text-foreground lg:rotate-90" />
           </div>
           <div className="flex flex-col items-center space-y-4 rounded-lg border p-6 shadow-sm">
-            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-              <span className="text-2xl font-bold text-primary">2</span>
+            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-muted">
+              <span className="text-2xl font-bold text-foreground">2</span>
             </div>
             <h3 className="text-xl font-bold">Connect and Invest</h3>
             <p className="text-center text-muted-foreground">
               Browse funds by thesis and performance, negotiate terms, and commit capital via USDC
             </p>
-            <ArrowRight className="h-6 w-6 text-primary lg:rotate-90" />
+            <ArrowRight className="h-6 w-6 text-foreground lg:rotate-90" />
           </div>
           <div className="flex flex-col items-center space-y-4 rounded-lg border p-6 shadow-sm">
-            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-              <span className="text-2xl font-bold text-primary">3</span>
+            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-muted">
+              <span className="text-2xl font-bold text-foreground">3</span>
             </div>
             <h3 className="text-xl font-bold">Track and Trade</h3>
             <p className="text-center text-muted-foreground">
@@ -57,33 +55,33 @@ export function LandingHowItWorks() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-primary"></div>
+                  <div className="h-2 w-2 rounded-full bg-foreground"></div>
                   <span>USDC-denominated positions</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-primary"></div>
+                  <div className="h-2 w-2 rounded-full bg-foreground"></div>
                   <span>Tokenized ownership with transparency</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-primary"></div>
+                  <div className="h-2 w-2 rounded-full bg-foreground"></div>
                   <span>Secondary market liquidity</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-primary"></div>
+                  <div className="h-2 w-2 rounded-full bg-foreground"></div>
                   <span>Smart contract-enforced vesting</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-primary"></div>
+                  <div className="h-2 w-2 rounded-full bg-foreground"></div>
                   <span>Real-time performance tracking</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-primary"></div>
+                  <div className="h-2 w-2 rounded-full bg-foreground"></div>
                   <span>Global accessibility via crypto rails</span>
                 </li>
               </ul>
             </div>
             <div className="flex items-center justify-center">
-              <div className="relative h-[300px] w-full max-w-[400px] overflow-hidden rounded-lg bg-gradient-to-br from-primary/20 via-muted to-background">
+              <div className="relative h-[300px] w-full max-w-[400px] overflow-hidden rounded-lg bg-gradient-to-br from-muted/20 via-muted to-background">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Image
                     src="/placeholder.svg?height=300&width=400"
