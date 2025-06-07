@@ -2,28 +2,28 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 
-export function StartupMessages() {
+export function GPMessages() {
   const messages = [
     {
-      sender: "Nexus Ventures",
-      message: "Interested in discussing terms for Series A",
+      sender: "LP Alpha",
+      message: "Interested in discussing terms for Fund II",
       time: "2h ago",
       unread: true,
-      avatar: "NV",
+      avatar: "LA",
     },
     {
-      sender: "Crypto Capital",
-      message: "Great progress on your milestones!",
+      sender: "LP Beta",
+      message: "Great progress on your investments!",
       time: "1d ago",
       unread: false,
-      avatar: "CC",
+      avatar: "LB",
     },
     {
-      sender: "BlockChain Fund",
+      sender: "LP Gamma",
       message: "Can we schedule a call this week?",
       time: "2d ago",
       unread: true,
-      avatar: "BF",
+      avatar: "LG",
     },
   ]
 
@@ -31,7 +31,7 @@ export function StartupMessages() {
     <Card>
       <CardHeader>
         <CardTitle>Recent Messages</CardTitle>
-        <CardDescription>Latest communications from investors</CardDescription>
+        <CardDescription>Latest communications from LPs</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">

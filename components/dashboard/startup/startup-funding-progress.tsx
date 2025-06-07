@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Target } from "lucide-react"
 
-export function StartupFundingProgress() {
+export function GPFundingProgress() {
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -19,7 +19,7 @@ export function StartupFundingProgress() {
             <span className="font-medium">$750,000</span>
           </div>
           <div className="flex items-center justify-between text-sm">
-            <span className="text-muted-foreground">Investors</span>
+            <span className="text-muted-foreground">Limited Partners</span>
             <span className="font-medium">12</span>
           </div>
           <div className="flex items-center justify-between text-sm">

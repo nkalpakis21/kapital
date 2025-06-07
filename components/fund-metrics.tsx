@@ -20,7 +20,7 @@ const fundMetrics = [
   },
 ]
 
-export function FundMetrics() {
+export function LPFundMetrics() {
   return (
     <Card className="border border-border bg-card">
       <CardHeader className="pb-4">

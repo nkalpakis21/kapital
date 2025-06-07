@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Users } from "lucide-react"
 
-export function StartupInvestorList() {
+export function GPInvestorList() {
   const investors = [
     { name: "Nexus Ventures", amount: "$200K", avatar: "NV" },
     { name: "Crypto Capital", amount: "$150K", avatar: "CC" },
@@ -13,7 +13,7 @@ export function StartupInvestorList() {
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-        <CardTitle className="text-sm font-medium">Recent Investors</CardTitle>
+        <CardTitle className="text-sm font-medium">Recent LPs</CardTitle>
         <Users className="h-4 w-4 text-muted-foreground" />
       </CardHeader>
       <CardContent>

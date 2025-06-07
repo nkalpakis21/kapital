@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Coins, TrendingUp } from "lucide-react"
 
-export function StartupTokenMetrics() {
+export function GPTokenMetrics() {
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">

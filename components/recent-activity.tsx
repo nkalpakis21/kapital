@@ -37,7 +37,7 @@ const recentActivities = [
   },
 ]
 
-export function RecentActivity() {
+export function LPRecentActivity() {
   return (
     <Card className="border border-border bg-card">
       <CardHeader className="pb-4">

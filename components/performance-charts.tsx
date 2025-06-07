@@ -33,7 +33,7 @@ const performanceData = [
   },
 ]
 
-export function PerformanceCharts() {
+export function LPPerformanceCharts() {
   return (
     <Card className="border border-border bg-card">
       <CardHeader className="pb-4">
