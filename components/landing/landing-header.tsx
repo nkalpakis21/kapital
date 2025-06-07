@@ -16,8 +16,10 @@ import {
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { cn } from "@/lib/utils"
 import { Coins, Menu } from "lucide-react"
+import { useAuth } from "@/contexts/AuthContext"
 
 export function LandingHeader() {
+  const { currentUser } = useAuth()
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
@@ -95,12 +97,20 @@ export function LandingHeader() {
         <div className="flex items-center gap-2">
           <ModeToggle />
           <div className="hidden md:flex gap-2">
-            <Button variant="outline" asChild>
-              <Link href="/login">Log In</Link>
-            </Button>
-            <Button asChild>
-              <Link href="/signup">Sign Up</Link>
-            </Button>
+            {currentUser ? (
+              <Button asChild>
+                <Link href="/dashboard">Dashboard</Link>
+              </Button>
+            ) : (
+              <>
+                <Button variant="outline" asChild>
+                  <Link href="/login">Log In</Link>
+                </Button>
+                <Button asChild>
+                  <Link href="/signup">Sign Up</Link>
+                </Button>
+              </>
+            )}
           </div>
           <Sheet>
             <SheetTrigger asChild>
@@ -127,12 +137,20 @@ export function LandingHeader() {
                 <Button variant="ghost" className="justify-start" asChild>
                   <Link href="#">About</Link>
                 </Button>
-                <Button variant="outline" className="justify-start" asChild>
-                  <Link href="/login">Log In</Link>
-                </Button>
-                <Button className="justify-start" asChild>
-                  <Link href="/signup">Sign Up</Link>
-                </Button>
+                {currentUser ? (
+                  <Button className="justify-start" asChild>
+                    <Link href="/dashboard">Dashboard</Link>
+                  </Button>
+                ) : (
+                  <>
+                    <Button variant="outline" className="justify-start" asChild>
+                      <Link href="/login">Log In</Link>
+                    </Button>
+                    <Button className="justify-start" asChild>
+                      <Link href="/signup">Sign Up</Link>
+                    </Button>
+                  </>
+                )}
               </div>
             </SheetContent>
           </Sheet>
