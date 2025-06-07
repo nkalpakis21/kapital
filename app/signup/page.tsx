@@ -5,7 +5,14 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -68,7 +75,7 @@ export default function SignupPage() {
         toast.error("Failed to create user account")
         return
       }
-
+      
       // Create LP using the LP service
       const lpService = new LPService()
       await lpService.createLP({
@@ -79,7 +86,7 @@ export default function SignupPage() {
       })
 
       toast.success("LP account created successfully!")
-      router.push("/dashboard")
+      router.push("/dashboard/lp")
     } catch (error) {
       console.error("Signup failed:", error)
       toast.error("Failed to create LP account")
@@ -114,7 +121,7 @@ export default function SignupPage() {
         toast.error("Failed to create user account")
         return
       }
-
+      
       // Create GP using the GP service
       const gpService = new GPService()
       await gpService.createGP({
@@ -125,7 +132,7 @@ export default function SignupPage() {
       })
 
       toast.success("Fund Manager account created successfully!")
-      router.push("/dashboard")
+      router.push("/dashboard/gp")
     } catch (error) {
       console.error("Signup failed:", error)
       toast.error("Failed to create Fund Manager account")
@@ -215,8 +222,8 @@ export default function SignupPage() {
                   <CardContent className="space-y-4">
                     <div className="space-y-2">
                       <Label htmlFor="lp-name">Full Name / Entity Name</Label>
-                      <Input
-                        id="lp-name"
+                      <Input 
+                        id="lp-name" 
                         placeholder="Enter your name or entity name"
                         value={lpName}
                         onChange={(e) => setLPName(e.target.value)}
@@ -225,9 +232,9 @@ export default function SignupPage() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="lp-email">Email</Label>
-                      <Input
-                        id="lp-email"
-                        type="email"
+                      <Input 
+                        id="lp-email" 
+                        type="email" 
                         placeholder="Enter your email"
                         value={lpEmail}
                         onChange={(e) => setLPEmail(e.target.value)}
@@ -236,9 +243,9 @@ export default function SignupPage() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="lp-password">Password</Label>
-                      <Input
-                        id="lp-password"
-                        type="password"
+                      <Input 
+                        id="lp-password" 
+                        type="password" 
                         placeholder="Create a password"
                         value={lpPassword}
                         onChange={(e) => setLPPassword(e.target.value)}
@@ -247,8 +254,8 @@ export default function SignupPage() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="lp-type">Investor Type</Label>
-                      <Input
-                        id="lp-type"
+                      <Input 
+                        id="lp-type" 
                         placeholder="e.g., Individual, Family Office, DAO"
                         value={lpType}
                         onChange={(e) => setLPType(e.target.value)}
@@ -257,7 +264,11 @@ export default function SignupPage() {
                     </div>
                   </CardContent>
                   <CardFooter className="flex flex-col space-y-2">
-                    <Button className="w-full" onClick={createLPAccount} disabled={isLoading}>
+                    <Button 
+                      className="w-full" 
+                      onClick={createLPAccount}
+                      disabled={isLoading}
+                    >
                       {isLoading ? "Creating Account..." : "Create LP Account"}
                     </Button>
                     <div className="text-center text-sm text-muted-foreground">
@@ -280,8 +291,8 @@ export default function SignupPage() {
                   <CardContent className="space-y-4">
                     <div className="space-y-2">
                       <Label htmlFor="gp-name">Fund / Firm Name</Label>
-                      <Input
-                        id="gp-name"
+                      <Input 
+                        id="gp-name" 
                         placeholder="Enter your fund or firm name"
                         value={gpName}
                         onChange={(e) => setGPName(e.target.value)}
@@ -290,9 +301,9 @@ export default function SignupPage() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="gp-email">Email</Label>
-                      <Input
-                        id="gp-email"
-                        type="email"
+                      <Input 
+                        id="gp-email" 
+                        type="email" 
                         placeholder="Enter your email"
                         value={gpEmail}
                         onChange={(e) => setGPEmail(e.target.value)}
@@ -301,9 +312,9 @@ export default function SignupPage() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="gp-password">Password</Label>
-                      <Input
-                        id="gp-password"
-                        type="password"
+                      <Input 
+                        id="gp-password" 
+                        type="password" 
                         placeholder="Create a password"
                         value={gpPassword}
                         onChange={(e) => setGPPassword(e.target.value)}
@@ -312,8 +323,8 @@ export default function SignupPage() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="gp-focus">Investment Focus</Label>
-                      <Input
-                        id="gp-focus"
+                      <Input 
+                        id="gp-focus" 
                         placeholder="e.g., Early-stage Web3, Climate Tech"
                         value={gpFocus}
                         onChange={(e) => setGPFocus(e.target.value)}
@@ -322,7 +333,11 @@ export default function SignupPage() {
                     </div>
                   </CardContent>
                   <CardFooter className="flex flex-col space-y-2">
-                    <Button className="w-full" onClick={createGPAccount} disabled={isLoading}>
+                    <Button 
+                      className="w-full"
+                      onClick={createGPAccount}
+                      disabled={isLoading}
+                    >
                       {isLoading ? "Creating Account..." : "Create Fund Manager Account"}
                     </Button>
                     <div className="text-center text-sm text-muted-foreground">

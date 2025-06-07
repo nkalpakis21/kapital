@@ -15,7 +15,7 @@ export function LandingTestimonials() {
               Trusted by Modern LPs and Innovative Fund Managers
             </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Hear from the LPs and GPs who are transforming fund investing with Kapital
+              Hear from the LPs and GPs who are transforming fund investing with VentureToken
             </p>
           </div>
         </div>
@@ -25,7 +25,7 @@ export function LandingTestimonials() {
               <div className="flex flex-col gap-4">
                 <Quote className="h-8 w-8 text-primary/50" />
                 <p className="text-lg">
-                &quot;Kapital transformed our fund investing process. The USDC-denominated positions and tokenized
+                &quot;VentureToken transformed our fund investing process. The USDC-denominated positions and tokenized
                   structure gave us the flexibility and transparency we needed as a DAO treasury.&quot;
                 </p>
                 <div className="flex items-center gap-4">
@@ -103,7 +103,7 @@ export function LandingTestimonials() {
               <div className="flex flex-col gap-4">
                 <Quote className="h-8 w-8 text-primary/50" />
                 <p className="text-lg">
-                &quot;Kapital&apos;s platform helped us discover early-stage Web3 funds that perfectly matched our
+                &quot;VentureToken&apos;s platform helped us discover early-stage Web3 funds that perfectly matched our
                   investment thesis. The lower minimums and digital onboarding made participation seamless.&quot;
                 </p>
                 <div className="flex items-center gap-4">
