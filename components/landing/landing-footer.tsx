@@ -4,11 +4,11 @@ import { Coins } from "lucide-react"
 export function LandingFooter() {
   return (
     <footer className="w-full bg-gray-50 py-8 md:py-12">
-      <div className="container px-4 md:px-6">
+      <div className="container px-8 md:px-12">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              <Coins className="h-6 w-6 text-blue-600" />
+              <Coins className="h-6 w-6 text-black" />
               <span className="text-xl font-semibold text-gray-900">Kapital</span>
             </Link>
             <p className="text-sm text-gray-600 leading-relaxed">
