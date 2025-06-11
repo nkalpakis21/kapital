@@ -15,7 +15,7 @@ export function LandingCta() {
           <Button className="bg-background text-foreground hover:bg-muted" size="lg" asChild>
             <Link href="/signup">Sign Up</Link>
           </Button>
-          <Button variant="outline" className="border-background text-background hover:bg-background/20 hover:text-foreground" size="lg" asChild>
+          <Button variant="outline" className="border-background text-background hover:bg-background hover:text-foreground" size="lg" asChild>
             <Link href="/login">Learn More</Link>
           </Button>
         </div>
