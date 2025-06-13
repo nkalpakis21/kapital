@@ -11,7 +11,6 @@ import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ArrowLeft, Coins } from "lucide-react"
 import { useAuth } from "@/contexts/AuthContext"
-import { GPService } from "@/lib/services/gpService"
 import { toast } from "sonner"
 import { AuthProviderType } from '@/lib/auth/authProviders';
 
