@@ -11,16 +11,16 @@ import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ArrowLeft, Coins } from "lucide-react"
 import { useAuth } from "@/contexts/AuthContext"
-import { LPService } from "@/lib/services/lpService"
-import { GPService } from "@/lib/services/gpService"
 import { toast } from "sonner"
+import { AuthProviderType } from '@/lib/auth/authProviders';
+
 
 export default function SignupPage() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const defaultType = searchParams.get("type") || "lp"
   const [activeTab, setActiveTab] = useState(defaultType)
-  const { signup } = useAuth()
+  const { signup, setActiveProvider } = useAuth()
   const [isLoading, setIsLoading] = useState(false)
   // LP Form State
   const [lpName, setLPName] = useState("")
@@ -62,21 +62,17 @@ export default function SignupPage() {
         return
       }
 
-      // First create the user account
-      const user = await signup(lpEmail, lpPassword)
-      if (!user) {
-        toast.error("Failed to create user account")
-        return
-      }
+      // Set active provider to Magic.js for LP signup
+      setActiveProvider(AuthProviderType.Magic);
 
-      // Create LP using the LP service
-      const lpService = new LPService()
-      await lpService.createLP({
+      // Use the abstracted signup function
+      await signup({
         name: lpName,
         email: lpEmail,
-        type: lpType,
-        userId: user.uid,
-      })
+        password: lpPassword,
+        userType: "lp",
+        lpType: lpType,
+      });
 
       toast.success("LP account created successfully!")
       router.push("/dashboard")
@@ -108,21 +104,31 @@ export default function SignupPage() {
         return
       }
 
-      // First create the user account
-      const user = await signup(gpEmail, gpPassword)
+      // Set active provider to Firebase for GP signup (assuming Firebase for GP)
+      setActiveProvider(AuthProviderType.Firebase);
+
+      // Use the abstracted signup function
+      const user = await signup({
+        name: gpName,
+        email: gpEmail,
+        password: gpPassword,
+        userType: "gp",
+        focus: gpFocus,
+      });
+
       if (!user) {
         toast.error("Failed to create user account")
         return
       }
 
-      // Create GP using the GP service
-      const gpService = new GPService()
-      await gpService.createGP({
-        name: gpName,
-        email: gpEmail,
-        focus: gpFocus,
-        userId: user.uid,
-      })
+      // Create GP using the GP service - This will now be handled in AuthContext
+      // const gpService = new GPService()
+      // await gpService.createGP({
+      //   name: gpName,
+      //   email: gpEmail,
+      //   focus: gpFocus,
+      //   userId: user.uid,
+      // })
 
       toast.success("Fund Manager account created successfully!")
       router.push("/dashboard")

@@ -11,13 +11,14 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { ArrowLeft, Coins } from "lucide-react"
 import { useAuth } from "@/contexts/AuthContext"
+import { AuthProviderType } from "@/lib/auth/authProviders"
 
 export default function LoginPage() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")
-  const { login } = useAuth()
+  const { login, setActiveProvider } = useAuth()
   const router = useRouter()
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -26,6 +27,7 @@ export default function LoginPage() {
     setError("")
 
     try {
+      setActiveProvider(AuthProviderType.Firebase)
       await login(email, password)
       router.push("/dashboard")
     } catch (error) {
