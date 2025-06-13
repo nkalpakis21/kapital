@@ -11,11 +11,9 @@ import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ArrowLeft, Coins } from "lucide-react"
 import { useAuth } from "@/contexts/AuthContext"
-import { LPService } from "@/lib/services/lpService"
 import { GPService } from "@/lib/services/gpService"
 import { toast } from "sonner"
-import { magic } from '@/lib/magic/magic';
-import { Magic } from 'magic-sdk';
+import { AuthProviderType } from '@/lib/auth/authProviders';
 
 
 export default function SignupPage() {
@@ -23,7 +21,7 @@ export default function SignupPage() {
   const searchParams = useSearchParams()
   const defaultType = searchParams.get("type") || "lp"
   const [activeTab, setActiveTab] = useState(defaultType)
-  const { signup } = useAuth()
+  const { signup, setActiveProvider } = useAuth()
   const [isLoading, setIsLoading] = useState(false)
   // LP Form State
   const [lpName, setLPName] = useState("")
@@ -36,6 +34,7 @@ export default function SignupPage() {
   const [gpEmail, setGPEmail] = useState("")
   const [gpPassword, setGPPassword] = useState("")
   const [gpFocus, setGPFocus] = useState("")
+
   const validateEmail = (email: string) => {
     return email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)
   }
@@ -64,30 +63,17 @@ export default function SignupPage() {
         return
       }
 
-      // Check if magic is initialized
-      if (!magic) {
-        toast.error("Magic SDK is not initialized. Please try again.");
-        setIsLoading(false);
-        return;
-      }
+      // Set active provider to Magic.js for LP signup
+      setActiveProvider(AuthProviderType.Magic);
 
-      // Explicitly cast magic.user to any to resolve TypeScript error
-      const magicUser = magic.user as any;
-
-      // First create the user account
-      await magic.auth.loginWithEmailOTP({ email: lpEmail });
-      const metadata = await magicUser.getInfo();
-      const userPublicKey = metadata.publicAddress;
-      console.log("User wallet:", userPublicKey, " metadata: ", metadata);
-
-      // Create LP using the LP service
-      const lpService = new LPService()
-      await lpService.createLP({
+      // Use the abstracted signup function
+      await signup({
         name: lpName,
         email: lpEmail,
-        type: lpType,
-        userId: userPublicKey,
-      })
+        password: lpPassword,
+        userType: "lp",
+        lpType: lpType,
+      });
 
       toast.success("LP account created successfully!")
       router.push("/dashboard")
@@ -119,21 +105,31 @@ export default function SignupPage() {
         return
       }
 
-      // First create the user account
-      const user = await signup(gpEmail, gpPassword)
+      // Set active provider to Firebase for GP signup (assuming Firebase for GP)
+      setActiveProvider(AuthProviderType.Firebase);
+
+      // Use the abstracted signup function
+      const user = await signup({
+        name: gpName,
+        email: gpEmail,
+        password: gpPassword,
+        userType: "gp",
+        focus: gpFocus,
+      });
+
       if (!user) {
         toast.error("Failed to create user account")
         return
       }
 
-      // Create GP using the GP service
-      const gpService = new GPService()
-      await gpService.createGP({
-        name: gpName,
-        email: gpEmail,
-        focus: gpFocus,
-        userId: user.uid,
-      })
+      // Create GP using the GP service - This will now be handled in AuthContext
+      // const gpService = new GPService()
+      // await gpService.createGP({
+      //   name: gpName,
+      //   email: gpEmail,
+      //   focus: gpFocus,
+      //   userId: user.uid,
+      // })
 
       toast.success("Fund Manager account created successfully!")
       router.push("/dashboard")
