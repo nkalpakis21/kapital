@@ -14,6 +14,9 @@ import { useAuth } from "@/contexts/AuthContext"
 import { LPService } from "@/lib/services/lpService"
 import { GPService } from "@/lib/services/gpService"
 import { toast } from "sonner"
+import { magic } from '@/lib/magic/magic';
+import { Magic } from 'magic-sdk';
+
 
 export default function SignupPage() {
   const router = useRouter()
@@ -33,7 +36,6 @@ export default function SignupPage() {
   const [gpEmail, setGPEmail] = useState("")
   const [gpPassword, setGPPassword] = useState("")
   const [gpFocus, setGPFocus] = useState("")
-
   const validateEmail = (email: string) => {
     return email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)
   }
@@ -62,12 +64,21 @@ export default function SignupPage() {
         return
       }
 
-      // First create the user account
-      const user = await signup(lpEmail, lpPassword)
-      if (!user) {
-        toast.error("Failed to create user account")
-        return
+      // Check if magic is initialized
+      if (!magic) {
+        toast.error("Magic SDK is not initialized. Please try again.");
+        setIsLoading(false);
+        return;
       }
+
+      // Explicitly cast magic.user to any to resolve TypeScript error
+      const magicUser = magic.user as any;
+
+      // First create the user account
+      await magic.auth.loginWithEmailOTP({ email: lpEmail });
+      const metadata = await magicUser.getInfo();
+      const userPublicKey = metadata.publicAddress;
+      console.log("User wallet:", userPublicKey, " metadata: ", metadata);
 
       // Create LP using the LP service
       const lpService = new LPService()
@@ -75,7 +86,7 @@ export default function SignupPage() {
         name: lpName,
         email: lpEmail,
         type: lpType,
-        userId: user.uid,
+        userId: userPublicKey,
       })
 
       toast.success("LP account created successfully!")

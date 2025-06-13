@@ -16,6 +16,7 @@ import React, {
     signInWithPopup,
   } from "firebase/auth";
   import { auth, googleProvider } from "../lib/firebaseConfig";
+  import { magic } from '../lib/magic/magic'; // Import magic
   
   interface AuthContextType {
     currentUser: User | null;
@@ -23,6 +24,7 @@ import React, {
     signup: (email: string, password: string) => Promise<User>;
     logout: () => Promise<void>;
     signInWithGoogle: () => Promise<void>;
+    loading: boolean;
   }
   
   const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -44,19 +46,44 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [loading, setLoading] = useState(true);
   
     useEffect(() => {
-      const unsubscribe = onAuthStateChanged(auth, (user) => {
-        setCurrentUser(user);
-        setLoading(false);
-      });
-      return unsubscribe;
+      const checkMagicLogin = async () => {
+        try {
+          const isLoggedIn = await magic?.user.isLoggedIn();
+          if (isLoggedIn) {
+            const metadata = await magic?.user.getInfo();
+            console.log(metadata)
+            // You might need to map Magic user info to Firebase User type or a common User type
+            setCurrentUser({ uid: metadata?.publicAddress, email: metadata?.email, ...metadata } as User); // Simplified mapping
+          } else {
+            setCurrentUser(null);
+          }
+        } catch (error) {
+          console.error("Magic login check failed:", error);
+          setCurrentUser(null);
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      // Remove Firebase onAuthStateChanged listener for now, if you want Magic to be the primary check
+      // const unsubscribe = onAuthStateChanged(auth, (user) => {
+      //   setCurrentUser(user);
+      //   setLoading(false);
+      // });
+      // return unsubscribe;
+
+      checkMagicLogin();
+
     }, []);
   
     async function signup(email: string, password: string) {
+      // This still uses Firebase signup. Consider if you want to use Magic for signup here too.
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       return userCredential.user;
     }
   
     async function login(email: string, password: string) {
+      // This still uses Firebase login. Consider if you want to use Magic for login here too.
       await signInWithEmailAndPassword(auth, email, password);
     }
   
@@ -74,6 +101,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       login,
       logout,
       signInWithGoogle,
+      loading,
     };
   
     return (
