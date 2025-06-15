@@ -10,7 +10,7 @@ import { PerformanceCharts } from "@/components/performance-charts"
 import { RecentActivity } from "@/components/recent-activity"
 import { FundMetrics } from "@/components/fund-metrics"
 import { MarketInsights } from "@/components/market-insights"
-import { WalletInfoCard } from "@/components/dashboard/startup/WalletInfoCard"
+import { WalletInfoCard } from "@/components/dashboard/WalletInfoCard"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 
 export default function DashboardPage() {
