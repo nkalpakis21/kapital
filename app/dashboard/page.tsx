@@ -10,6 +10,7 @@ import { PerformanceCharts } from "@/components/performance-charts"
 import { RecentActivity } from "@/components/recent-activity"
 import { FundMetrics } from "@/components/fund-metrics"
 import { MarketInsights } from "@/components/market-insights"
+import { WalletInfoCard } from "@/components/dashboard/startup/WalletInfoCard"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 
 export default function DashboardPage() {
@@ -52,6 +53,7 @@ export default function DashboardPage() {
               <RecentActivity />
             </div>
             <div className="space-y-6">
+              <WalletInfoCard />
               <FundMetrics />
               <MarketInsights />
             </div>
